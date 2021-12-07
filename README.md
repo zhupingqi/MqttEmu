@@ -1,5 +1,51 @@
 
 
-cnpm install electron-packager -g
-electron-packager . MqttEmu --win --out out --arch=x64 --asar --icon=icon40.ico --overwrite
-electron-packager . MqttEmu --win --out out --arch=x64 --icon=icon40.ico --overwrite
+### 简介
+
+MqttEmu是使用Electron构建桌面应用程序，允许运行在Windows、macOS和Linux上。
+
+MqttEmu是一个物联网设备仿真器，主要使用Mqtt协议进行网络通讯，实现物联网设备与物联网平台的消息通讯。
+
+MqttEmu适用于没有物联网硬件开发经验或者暂时不需要进行物联网硬件开发的人员，MqttEmu可以在没有物联网硬件的前提下进行网联网服务端开发，并进行服务端功能性测试。
+
+### 界面
+
+![主界面](https://images.gitee.com/uploads/images/2021/1207/143716_5da6c10b_1970137.png "屏幕截图.png")
+
+主界面大致分为功能区、链接区、桌面区三个部分。功能区为常用功能命令，例如：创建设备。链接区提供github及帮助链接。桌面区用于操作当前放入桌面设备。设备只有放入桌面才可以连接到物联网。
+
+### 快速入门
+
+本部分将会通过使用MqttEmu创建一个极简的物联网设备带你了解如何使用MqttEmu模拟物联网设备。
+
+> 本部分使用阿里云作为物联网服务器，您需要首先使用阿里云物联网创建一个产品，并新建一个设备。
+
+##### 创建设备
+
+在阿里云创建完物联网设备后，回到我们的应用，点击主界面功能区的新设备打开设备创建窗口。
+
+![新设备](https://images.gitee.com/uploads/images/2021/1207/145412_e7d95fbb_1970137.png "屏幕截图.png")
+
+名称填写为您设备的名称，这里填写为test1,模式选择标准，生成器选择阿里云，ProductKey、DeviceName、DeviceSecret可以在您创建的阿里云物联网产品设备上找到，将这些信息填入相关区域。其他选型如下图所选，然后点击填充按钮，连接阿里云所需要的相关参数会自动进行填充。
+
+![设备信息](https://images.gitee.com/uploads/images/2021/1207/145656_99846154_1970137.png =100 "屏幕截图.png")
+
+其他暂时不需要填写，点击提交按钮，添加这个设备。
+
+##### 将设备添加至桌面区
+
+在主界面功能区点击设备列表，将打开设备管理器，这里您将看到您刚刚创建的设备。
+
+![设备列表](https://images.gitee.com/uploads/images/2021/1207/151215_cc3c44a7_1970137.png "屏幕截图.png")
+
+> 设备下面的三个功能按钮为 1：添加至桌面 2：编辑设备 3：删除设备
+
+我们点击第一个按钮，将设备添加桌面区，然后关闭设备管理器。
+
+##### 设备上线
+
+![桌面设备](https://images.gitee.com/uploads/images/2021/1207/163949_efe6d83f_1970137.png "屏幕截图.png")
+
+将设备添加至桌面后，会出现如下图所示界面，1位置为设备功能区，2位置为上报订阅区，3位置为日志区
+
+点击设备功能区的第一个连接按钮，设备即可上线。

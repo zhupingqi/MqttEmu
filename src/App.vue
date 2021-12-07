@@ -25,9 +25,8 @@
             <a-layout-header style="background: #fff; padding: 0">
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
                 <a-space style="float:right;margin-right:24px" :size="12">
-                    <a-icon type="github" />
+                    <a-icon type="github" @click="showGithub"/>
                     <a-icon type="question-circle" @click="showHelp" />
-                    <a-icon type="exclamation-circle" />
                 </a-space>
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
@@ -57,6 +56,7 @@
     import bus from '@/core/utils';
 
     const ipc = require('electron').ipcRenderer;
+    const shell = require('electron').shell;
 
     @Component({
         components: {
@@ -91,6 +91,10 @@
 
         showHelp() {
             ipc.send("showHelpWindow");
+        }
+
+        showGithub() {
+            shell.openExternal("https://github.com/zhupingqi/MqttEmu");
         }
     }
 </script>
@@ -134,5 +138,9 @@
 
     .ant-layout-sider-collapsed .logo{
 
+    }
+
+    .ace_editor{
+        margin-left:15px;
     }
 </style>

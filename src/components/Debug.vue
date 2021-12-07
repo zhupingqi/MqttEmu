@@ -1,10 +1,12 @@
 ﻿<template>
     <a-layout style="height:100%">
         <a-layout-sider style="border-right: 1px solid #e8e8e8;padding: 5px;background-color: white;">
-            <a-button-group>
-                <a-button icon="upload" @click="newPub()">Pub</a-button>
-                <a-button icon="download" @click="newSub()">Sub</a-button>
-            </a-button-group>
+            <div class="debug_btn">
+                <a-button icon="upload" @click="newPub()" size="small" title="new publish" />
+                <a-button icon="download" @click="newSub()" size="small" title="new subscription" />
+                <a-button icon="check-circle" @click="" size="small" title="enable all publish" />
+                <a-button icon="stop" @click="" size="small" title="disable all publish" />
+            </div>
             <a-tree show-icon default-expand-all :tree-data="treeData" class="topic_tree">
                 <template #title="{ key: treeKey, title, topic, enable,type}">
                     <a-dropdown :trigger="['contextmenu']" v-if="treeKey !== ''">
@@ -73,7 +75,10 @@
                                                 <br />
                                                 {{ dateFormat(item.create) }}
                                             </td>
-                                            <td style="word-break:break-all;vertical-align:top">{{item.content}}</td>
+                                            <td style="word-break:break-all;vertical-align:top">
+                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag color="green">{{ item.topic }}</a-tag></a-row>
+                                                <a-row>{{item.content}}</a-row>
+                                            </td>
                                         </tr>
                                     </template>
                                     <template v-else>
@@ -291,5 +296,13 @@
 
     .topic_tree span.ant-tree-switcher{
         display:none!important;
+    }
+
+    .ant-table-tbody > tr > td, .ant-table-thead > tr > th {
+        padding: 6px 16px!important;
+    }
+
+    .debug_btn .ant-btn-sm {
+        margin-right: 10px!important;
     }
 </style>

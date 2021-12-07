@@ -14,12 +14,12 @@ export namespace db {
         constructor() {
             super("MqttEmu");
 
-            this.version(23).stores({
+            this.version(24).stores({
                 device: '++id,name,type,options,create,update,alg_name,extra',
                 desk: '++id,&device_id,create',
                 topic: '++id,*device_id,create,update,type,enable,name,topic,qos,interval,map,code,pubId',
                 sensor: '++id,create,update,&name,comment,code',
-                log: '++id,*device_id,create,action,content',
+                log: '++id,*device_id,create,action,topic,content',
                 options:'++id,&key,value'
             });
 
@@ -131,16 +131,19 @@ export namespace db {
         id?: number = undefined;
         device_id: number = 0;
         action: DeviceAction = "online";
+        topic: string = "";
         content: string = "";
         create: Date;
 
         constructor();
-        constructor(device_id?: number, action?: string, log?: string);
-        constructor(device_id?: number, action?: DeviceAction, content?: string) {
+        constructor(device_id?: number, action?: string, topic?: string, content?: string);
+        constructor(device_id?: number, action?: DeviceAction, topic?: string, content?: string) {
             if (device_id)
                 this.device_id = device_id;
             if (action)
                 this.action = action;
+            if (topic)
+                this.topic = topic;
             if (content)
                 this.content = content;
         }

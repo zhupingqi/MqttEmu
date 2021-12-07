@@ -32,6 +32,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="build.txt">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\favicon.ico" />
     <Content Include="public\img\icon.png" />
     <Content Include="public\img\icon128.png" />

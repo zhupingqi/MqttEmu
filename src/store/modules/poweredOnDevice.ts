@@ -223,13 +223,13 @@ export class PoweredOnDevice {
                     if (typeof (result) === "string")
                         this.client!.publish($.trim(t.topic), result);
                     else
-                        this.log("publish", "error:Unexpected type of publish message");
+                        this.log("publish","", "error:Unexpected type of publish message");
                 }
                 else {
                     if (result.toJSON && result.toJSON().type === "Buffer")
                         this.client!.publish($.trim(t.topic), result);
                     else
-                        this.log("publish", "error:Unexpected type of publish message");
+                        this.log("publish","", "error:Unexpected type of publish message");
                 }
             });
         } catch (e) {
@@ -274,10 +274,10 @@ export class PoweredOnDevice {
             if (t && t.enable && payload) {
                 if (this.device!.type === "pass-through") {
                     let hex = this.toHex(payload.toJSON().data);
-                    this.log("subscribe", hex);
+                    this.log("subscribe", topic, hex);
                 }
                 else
-                    this.log("subscribe", payload.toString());
+                    this.log("subscribe",topic, payload.toString());
 
                 if (t.pubId) {
                     respository.topic.get(t.pubId).then(t => {
@@ -286,7 +286,7 @@ export class PoweredOnDevice {
                     });
                 }
             } else {
-                this.log("unsubscribed", JSON.stringify(payload.toString()));
+                this.log("unsubscribed", topic, JSON.stringify(payload.toString()));
             }
         });
     }
@@ -302,7 +302,7 @@ export class PoweredOnDevice {
             this.client.on("connect", (cb: OnConnectCallback) => {
                 this.connecting = false;
                 _this.connected = _this.client!.connected;
-                _this.log("online", JSON.stringify(cb));
+                _this.log("online","", JSON.stringify(cb));
 
                 this.autoPub();
             });
@@ -341,10 +341,10 @@ export class PoweredOnDevice {
                 if (cmd && cmd === "publish") {
                     if (this.device!.type === "pass-through") {
                         let hex = this.toHex(cb.payload.toJSON().data);
-                        _this.log("publish", hex);
+                        _this.log("publish", cb.topic, hex);
                     }
                     else {
-                        _this.log("publish", cb.payload);
+                        _this.log("publish", cb.topic, cb.payload);
                     }
                 }                    
             });
@@ -370,12 +370,12 @@ export class PoweredOnDevice {
             this.connected = false;
             this.counter = 0;
 
-            this.log("offline", "disconnect");
+            this.log("offline","", "disconnect");
         }
     }
 
-    log(action: db.DeviceAction, content: string) {
-        respository.log.add(this.device_id, action, content).then(d => {
+    log(action: db.DeviceAction, topic: string, content: string) {
+        respository.log.add(this.device_id, action,topic, content).then(d => {
             bus.$emit("log", d);
         });
     }
