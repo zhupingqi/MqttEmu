@@ -8,7 +8,7 @@
               :destroyOnClose="true"
               :width="600"
               @close="onClose">
-        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_script_edit" ref="ruleForm">
+        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_script_edit">
             <a-textarea id="ace-editor-script" style="visibility:hidden;display:none" />
         </a-form-model>
         <div :style="{
@@ -64,16 +64,9 @@
         }
 
         submit() {
-            (this.$refs.ruleForm as any).validate((valid:any) => {
-                if (valid) {
-                    let code = this.editor.getValue();
-                    respository.options.addOrUpdate("script", code);
-                    this.onClose();
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
-            });
+            let code = this.editor.getValue();
+            respository.options.addOrUpdate("script", code);
+            this.onClose();
         }
 
         testScript() {
