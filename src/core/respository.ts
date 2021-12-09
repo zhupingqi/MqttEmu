@@ -159,8 +159,10 @@ export namespace respository {
             return db.context.topic.where("id").equals(id).first();
         }
 
-        find(topic: string) {
-            return db.context.topic.where("topic").equals(topic).first();
+        find(device_id: number, topic: string) {
+            return db.context.topic.where("device_id").equals(device_id).and((item) => {
+                return item.topic === topic
+            }).first();
         }
 
         clear(device_id: number) {

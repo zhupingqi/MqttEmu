@@ -113,7 +113,7 @@ function transformPayload(rawData) {
 
 本部分通过建立一个简单的温湿度传感器，供上报消息使用来演示传感器和公共脚本如何使用。
 
-##### 首先创建一个传感器
+##### 1. 创建一个传感器
 
 点击桌面区域功能区的传感器菜单，打开传感器列表面板，再点击右上方+号，新建传感器。
 
@@ -143,7 +143,7 @@ function readSensor($) {
 
 点击提交保存结果后，您将在传感器列表面板找到新建的传感器。
 
-##### 编辑公共脚本
+##### 2. 编辑公共脚本
 
 点击主界面功能区脚本菜单，弹出脚本编辑面板，录入脚本如下：
 
@@ -155,7 +155,7 @@ function timestamp() {
 ```
 点击提交保存结果。
 
-##### 重新编译上报消息
+##### 3. 重新编译上报消息
 
 在以上介绍的新建的上报消息property.post菜单上点击右键，点击编辑菜单，打开编辑消息面板。
 
@@ -195,10 +195,55 @@ function transformPayload(rawData) {
 
 其中rawData数据来源于上面所设置的变量部分，数组内容顺序于所调整的一致。jsonObj属性id使用了公共库timestamp函数结果，点击提交保存结果。
 
-回到桌面区，保持设备连接状态，自动或手动上报后，您将看到传感器和公共脚本运行结果。
+回到桌面区，保持设备连接状态，自动或手动上报后，通过观察日志您将看到传感器和公共脚本上报结果。
+
+### 订阅
+
+##### 1. 新建订阅
+
+点击[编辑发布消息](#5-%E7%BC%96%E8%BE%91%E5%8F%91%E5%B8%83%E6%B6%88%E6%81%AF)部分2标记处按钮，打开新建订阅面板。
+
+![订阅面板](https://images.gitee.com/uploads/images/2021/1209/084905_c916c004_1970137.png "屏幕截图.png")
+
+名称处填写 property.set,主题处填写 /sys/{product_key}/{device_name}/thing/service/property/set
+
+> 此处product_key，device_name替换成您的阿里三要素信息
+
+其他保持默认，点击提交保存订阅。
+
+> Publish用于收到订阅消息后进行上报，这里可以选择一个已保存的上报消息。通常将该类型的上报设置为**禁用**，只有在接受到对应订阅消息后才自动进行消息上报。在该类上报消息处理函数中会将订阅payload传入给第二个参数，以便进行相关操作。以下为订阅上报类消息函数模型
 
 
+```
+/**
+* 将设备raw数据转换为json格式数据
+* 入参：rawData 传感器数据对象
+* 入参：subPayload 订阅payload对象
+* 出参：jsonObj JSON对象 不能为空
+*/
+function transformPayload(rawData,subPayload) {
+    var jsonObj = {
+        "id":subPayload.id,
+        "params":{},
+        "version":"1.0",
+        "method":"thing.event.property.post"
+    };
+    
+    if(subPayload.params.LowTemperature !== undefined)
+        jsonObj.params.LowTemperature = subPayload.params.LowTemperature;
+        
+    if(subPayload.params.MaxTemperature !== undefined)
+        jsonObj.params.MaxTemperature = subPayload.params.MaxTemperature;    
+    
+    return jsonObj;
+}
+```
 
+##### 2. 订阅测试
+
+回到主界面后，保持设备仿真器处于连接状态。手动发送消息或等待自动发送消息完成，您将在日志中观察到发布及订阅消息的结果。
+
+![发布及订阅消息](https://images.gitee.com/uploads/images/2021/1209/093013_57fc0882_1970137.png "屏幕截图.png")
 
 
 

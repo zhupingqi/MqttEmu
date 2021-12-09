@@ -270,7 +270,7 @@ export class PoweredOnDevice {
 
     onSubMessage(topic: string, payload: any, packet: Packet) {
         let _this = this;
-        respository.topic.find(topic).then(t => {
+        respository.topic.find(this.device_id, topic).then(t => {
             if (t && t.enable && payload) {
                 if (this.device!.type === "pass-through") {
                     let hex = this.toHex(payload.toJSON().data);
@@ -308,6 +308,7 @@ export class PoweredOnDevice {
             });
 
             this.client.on('offline', (cb: OnErrorCallback) => {
+                _this.connected = _this.client!.connected;
                 this.client!.end();
             });
 
@@ -325,6 +326,7 @@ export class PoweredOnDevice {
 
                 this.client!.end();
                 this.connecting = false;
+                _this.connected = _this.client!.connected;
                 message.error(e.message);
             });
 

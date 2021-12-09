@@ -103,8 +103,10 @@
 
                 respository.options.get("script").then(d => {
                     if (d) {
-                        this.editor.setValue(d);
-                        this.editor.selection.clearSelection();
+                        this.$nextTick(() => {
+                            this.editor.setValue(d);
+                            this.editor.selection.clearSelection();
+                        });
                     }
                 });
             });

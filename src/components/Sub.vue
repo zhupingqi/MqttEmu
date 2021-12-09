@@ -23,11 +23,11 @@
                     <a-radio :value="2">2</a-radio>
                 </a-radio-group>
             </a-form-model-item>
-            <a-form-model-item label="Subscription">
+            <a-form-model-item label="Publish">
                 <a-select style="width: 120px" @change="pubChange" v-model="form.pubId" option-label-prop="label">
                     <a-select-option v-for="d in pubs" :label="d.label" :value="d.value">
                         {{ d.label }}
-                    </a-select-option>
+                    </a-select-option>Publish
                 </a-select>
                 <a-button type="link" @click="()=>{ form.pubId = null }">
                     remove
