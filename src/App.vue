@@ -26,7 +26,7 @@
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
                 <a-space style="float:right;margin-right:24px" :size="12">
                     <a-icon type="github" @click="showGithub"/>
-                    <a-icon type="question-circle" @click="showHelp" />
+                    <a-icon type="home" @click="showHome" />
                 </a-space>
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
@@ -95,6 +95,10 @@
 
         showGithub() {
             shell.openExternal("https://github.com/zhupingqi/MqttEmu");
+        }
+
+        showHome() {
+            shell.openExternal("http://www.imqtt.net");
         }
     }
 </script>

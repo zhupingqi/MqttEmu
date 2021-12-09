@@ -13,7 +13,7 @@
                 <a-list-item slot="renderItem" slot-scope="item, index">
                     <a-card :title="item.name">
                         <template slot="extra">
-                            <a-icon type="aliyun"></a-icon>
+                            <a-icon :type="getIcon(item.options)"></a-icon>
                         </template>
                         <a-tag color="geekblue" :title="item.options.protocol + '://' + item.options.host + ':' + item.options.port">{{ item.options.protocol }}://{{ item.options.host }}:{{ item.options.port }}</a-tag>
                         <a-tag color="volcano"  :title="item.options.clientId">{{ item.options.clientId }}</a-tag>
@@ -31,7 +31,7 @@
             <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right" class="debug_page" />
         </template>
         <template v-else>
-
+            {{$t('lang.no_device')}}
         </template>
     </a-drawer>
 </template>
@@ -119,6 +119,18 @@
         itemClick(id: number) {
             this.visible = false;
             bus.$emit("eidtDevice", id);
+        }
+
+        getIcon(opt: any) {
+            if (!opt.protocol || !opt.host)
+                return "file-unknown";
+
+            let u = new URL(opt.protocol + '://' + opt.host);
+            console.log(u.host);
+            if (opt.host.endsWith("aliyuncs.com"))
+                return "aliyun";
+            else
+                return "file-unknown";
         }
 
         onShowSizeChange(current: number, pageSize: number) {

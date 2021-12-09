@@ -10,12 +10,12 @@
               :bodyStyle="{ padding: '0 24px' }"
               @close="onClose">
         <a-form-model :model="form" :rules="rules" :label-col="{span:8}" :wrapper-col="{span:16}" id="form_device_edit">
-            <div style="padding-top: 8px"><b>General</b></div>
+            <div style="padding-top: 8px"><b>{{$t('lang.general')}}</b></div>
             <a-card>
                 <a-form-model-item :label="$t('lang.name')">
                     <a-input v-model="form.name" />
                 </a-form-model-item>
-                <a-form-model-item label="模式">
+                <a-form-model-item :label="$t('lang.mode')">
                     <a-radio-group v-model="deviceType">
                         <a-radio value="normal">
                             标准
@@ -25,7 +25,7 @@
                         </a-radio>
                     </a-radio-group>
                 </a-form-model-item>
-                <a-form-model-item label="生成器">
+                <a-form-model-item :label="$t('lang.generator')">
                     <a-select style="width: 120px" v-model="alg_name" option-label-prop="label" @change="onAlgChange" default-value="null">
                         <a-select-option v-for="a in algs" :label="a" :value="a">
                             {{ a }}
@@ -36,10 +36,10 @@
                     </a-select>
                     <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== null"></component>
                 </a-form-model-item>
-                <a-form-model-item label="Client Id">
+                <a-form-model-item :label="$t('lang.client_Id')">
                     <a-input v-model="form.clientId" />
                 </a-form-model-item>
-                <a-form-model-item label="Protocol">
+                <a-form-model-item :label="$t('lang.protocol')">
                     <a-select default-value="mqtt" v-model="form.protocol" style="width: 100px">
                         <a-select-option value="mqtt">
                             mqtt://
@@ -49,23 +49,23 @@
                         </a-select-option>
                     </a-select>
                 </a-form-model-item>
-                <a-form-model-item label="Host">
+                <a-form-model-item :label="$t('lang.host')">
                     <a-input v-model="form.host" />
                 </a-form-model-item>
                 <a-form-model-item label="Port">
                     <a-input v-model="form.port" />
                 </a-form-model-item>
-                <a-form-model-item label="Username">
+                <a-form-model-item :label="$t('lang.username')">
                     <a-input v-model="form.username" />
                 </a-form-model-item>
-                <a-form-model-item label="Password">
+                <a-form-model-item :label="$t('lang.password')">
                     <a-input v-model="form.password" />
                 </a-form-model-item>
                 <a-form-model-item label="SSL/TLS">
                     <a-switch v-model="form.ssl" />
                 </a-form-model-item>
                 <template v-if="form.ssl">
-                    <a-form-model-item label="Certificate">
+                    <a-form-model-item :label="$t('lang.certType')">
                         <a-radio-group v-model="form.certType">
                             <a-radio value="server">
                                 server
@@ -76,56 +76,56 @@
                         </a-radio-group>
                     </a-form-model-item>
                     <template v-if="form.certType === 'self'">
-                        <a-form-model-item label="CA Certificate">
+                        <a-form-model-item :label="$t('lang.ca_certificate')">
                             <a-textarea placeholder="CA certificates in PEM format" v-model="form.ca" :rows="4" />
                         </a-form-model-item>
-                        <a-form-model-item label="Cert Certificate">
+                        <a-form-model-item :label="$t('lang.cert_certificate')">
                             <a-textarea placeholder="Cert chains in PEM format" v-model="form.cert" :rows="4" />
                         </a-form-model-item>
                         <a-form-model-item label="Keys">
                             <a-textarea placeholder="Keys in PEM format" v-model="form.key" :rows="4" />
                         </a-form-model-item>
                     </template>
-                    <a-form-model-item label="SSL Secure">
+                    <a-form-model-item :label="$t('lang.ssl_secure')">
                         <a-switch v-model="form.tls_certificate_secure" />
                     </a-form-model-item>
                 </template>
             </a-card>
-            <div style="padding-top: 8px"><b>Advanced</b></div>
+            <div style="padding-top: 8px"><b>{{$t('lang.advance')}}</b></div>
             <a-card>
-                <a-form-model-item label="Connect Timeout(s)">
+                <a-form-model-item :label="[$t('lang.connectTimeout')+'(ms)']">
                     <a-input-number :default-value="10000" v-model="form.connectTimeout" />
                 </a-form-model-item>
-                <a-form-model-item label="Keep Alive(s)">
+                <a-form-model-item :label="[$t('lang.keepalive')+'(s)']">
                     <a-input-number :default-value="30" v-model="form.keepalive" />
                 </a-form-model-item>
-                <a-form-model-item label="Clean Session">
+                <a-form-model-item :label="$t('lang.cleanSession')">
                     <a-switch v-model="form.clean" />
                 </a-form-model-item>
-                <a-form-model-item label="Auto Reconnect">
+                <a-form-model-item :label="$t('lang.auto_teconnect')">
                     <a-switch v-model="form.reconnectPeriod" />
                 </a-form-model-item>
-                <a-form-model-item label="Mqtt Version">
+                <a-form-model-item :label="['Mqtt ' + $t('lang.version')]">
                     <a-radio-group v-model="form.mqttVersion">
                         <a-radio value="5.0">5.0</a-radio>
                         <a-radio value="3.1.1">3.1.1</a-radio>
                     </a-radio-group>
                 </a-form-model-item>
                 <template v-if="form.mqttVersion === '5.0'">
-                    <a-form-model-item label="Session Expiry Interval">
+                    <a-form-model-item :label="$t('lang.sessionExpiryInterval')">
                         <a-input-number v-model="form.properties.sessionExpiryInterval" />
                     </a-form-model-item>
-                    <a-form-model-item label="Receive Maximum">
+                    <a-form-model-item :label="$t('lang.receiveMaximum')">
                         <a-input-number v-model="form.properties.receiveMaximum" />
                     </a-form-model-item>
-                    <a-form-model-item label="Topic Alias Maximum">
+                    <a-form-model-item :label="$t('lang.topicAliasMaximum')">
                         <a-input-number v-model="form.properties.topicAliasMaximum" />
                     </a-form-model-item>
                 </template>
             </a-card>
-            <div style="padding-top: 8px"><b>Last Will</b></div>
+            <div style="padding-top: 8px"><b>{{$t('lang.lastWill')}}</b></div>
             <a-card>
-                <a-form-model-item label="Topic">
+                <a-form-model-item :label="$t('lang.topic')">
                     <a-input v-model="form.will.topic" />
                 </a-form-model-item>
                 <a-form-model-item label="QoS">
@@ -135,10 +135,10 @@
                         <a-radio :value="2">2</a-radio>
                     </a-radio-group>
                 </a-form-model-item>
-                <a-form-model-item label="Retain">
+                <a-form-model-item :label="$t('lang.retain')">
                     <a-switch v-model="form.will.retain" />
                 </a-form-model-item>
-                <a-form-model-item label="Payload">
+                <a-form-model-item :label="$t('lang.payload')">
                     <a-textarea v-model="form.will.payload" />
                 </a-form-model-item>
             </a-card>
@@ -156,10 +156,10 @@
           zIndex: 1,
         }">
             <a-button :style="{ marginRight: '8px' }" @click="onClose">
-                Cancel
+                {{$t('lang.cancel')}}
             </a-button>
             <a-button type="primary" @click="submit">
-                Submit
+                {{$t('lang.submit')}}
             </a-button>
         </div>
     </a-drawer>
@@ -305,12 +305,13 @@
                 this.alg_name = null;
                 this.extra = {};
                 this.deviceType = "normal";
+                this.title = this.$t('lang.newDevice').toString();
 
                 if (e != null) {
                     respository.device.get(e).then(d => {
                         if (d) {
                             this.id = e;
-                            this.title = "Edit Device";
+                            this.title = this.$t('lang.editDevice').toString();
                             this.form = $.extend({}, this.defaultOpts, d.options);
                             this.alg_name = d.alg_name ? d.alg_name : null;
                             this.extra = d.extra ? d.extra : {};

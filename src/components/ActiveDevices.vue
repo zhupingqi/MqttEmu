@@ -18,7 +18,7 @@
         </a-tabs>
     </template>
     <template v-else>
-        no data
+        {{$t('lang.no_device')}}
     </template>
 </template>
 
