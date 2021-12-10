@@ -235,7 +235,7 @@ export namespace respository {
         addOrUpdate(key: string, value: string) {
             let _this = this;
 
-            db.context.options.where("key").equals(key).first().then(d => {
+            return db.context.options.where("key").equals(key).first().then(d => {
                 if (d) {
                     d.value = value;
                     return db.context.options.update(d.id!, {

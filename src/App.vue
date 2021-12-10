@@ -31,6 +31,14 @@
                     <a-tooltip :title="$t('lang.home')" mouseEnterDelay="1">
                         <a-icon type="home" @click="showHome" />
                     </a-tooltip>
+                    <a-select style="width: 120px" v-model="locale" @change="onI18nChange" default-value="zh">
+                        <a-select-option value="zh">
+                            简体中文
+                        </a-select-option>
+                        <a-select-option value="en">
+                            English
+                        </a-select-option>
+                    </a-select>                    
                 </a-space>
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
@@ -58,6 +66,7 @@
     import Sub from './components/Sub.vue';
     import DeviceEdit from './components/DeviceEdit.vue';
     import bus from '@/core/utils';
+    import { respository } from './core/respository';
 
     const ipc = require('electron').ipcRenderer;
     const shell = require('electron').shell;
@@ -76,6 +85,7 @@
     })
     export default class App extends Vue {
         collapsed: boolean = false;
+        locale: string = "zh";
 
         newDevice() {
             bus.$emit("eidtDevice", null);
@@ -103,6 +113,23 @@
 
         showHome() {
             shell.openExternal("http://www.imqtt.net");
+        }
+
+        onI18nChange() {
+            let _this = this;
+
+            respository.options.addOrUpdate("locale", this.locale).then(() => {
+                this.$i18n.locale = _this.locale;
+            });
+        }
+
+        mounted() {
+            let _this = this;
+
+            respository.options.get("locale").then((locale) => {
+                if (locale)
+                    _this.locale = locale;
+            });
         }
     }
 </script>
