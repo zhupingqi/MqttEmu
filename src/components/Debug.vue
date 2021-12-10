@@ -2,10 +2,14 @@
     <a-layout style="height:100%">
         <a-layout-sider style="border-right: 1px solid #e8e8e8;padding: 5px;background-color: white;">
             <div class="debug_btn">
-                <a-button icon="upload" @click="newPub()" size="small" title="new publish" />
-                <a-button icon="download" @click="newSub()" size="small" title="new subscription" />
-                <a-button icon="check-circle" @click="" size="small" title="enable all publish" />
-                <a-button icon="stop" @click="" size="small" title="disable all publish" />
+                <a-tooltip :title="$t('lang.newPublish')" mouseEnterDelay="1">
+                    <a-button icon="upload" @click="newPub()" size="small" />
+                </a-tooltip>
+                <a-tooltip :title="$t('lang.newSubscription')" mouseEnterDelay="1">
+                    <a-button icon="download" @click="newSub()" size="small" />
+                </a-tooltip>
+                <!--<a-button icon="check-circle" @click="" size="small" title="enable all publish" />
+        <a-button icon="stop" @click="" size="small" title="disable all publish" />-->
             </div>
             <a-tree show-icon default-expand-all :tree-data="treeData" class="topic_tree">
                 <template #title="{ key: treeKey, title, topic, enable,type}">
@@ -22,24 +26,24 @@
                         </template>
                         <template #overlay>
                             <a-menu @click="({ key: menuKey }) => onContextMenuClick(treeKey, menuKey, type)">
-                                <a-menu-item key="publish" :disabled="!connected" v-if="type === 'pub'">发布</a-menu-item>
+                                <a-menu-item key="publish" :disabled="!connected" v-if="type === 'pub'">{{$t('lang.publish')}}</a-menu-item>
                                 <a-menu-divider v-if="type === 'pub'" />
                                 <template v-if="type==='pub'">
-                                    <a-menu-item key="disable" v-if="enable === true">禁用</a-menu-item>
-                                    <a-menu-item key="enable" v-if="enable === false">启用</a-menu-item>
+                                    <a-menu-item key="disable" v-if="enable === true">{{$t('lang.disable')}}</a-menu-item>
+                                    <a-menu-item key="enable" v-if="enable === false">{{$t('lang.enable')}}</a-menu-item>
                                 </template>
                                 <template v-else>
-                                    <a-menu-item key="disable" v-if="enable === true" :disabled="!connected">禁用</a-menu-item>
-                                    <a-menu-item key="enable" v-if="enable === false" :disabled="!connected">启用</a-menu-item>
+                                    <a-menu-item key="disable" v-if="enable === true" :disabled="!connected">{{$t('lang.disable')}}</a-menu-item>
+                                    <a-menu-item key="enable" v-if="enable === false" :disabled="!connected">{{$t('lang.enable')}}</a-menu-item>
                                 </template>
-                                <a-menu-item key="edit">编辑</a-menu-item>
+                                <a-menu-item key="edit">{{$t('lang.edit')}}</a-menu-item>
                                 <a-menu-divider />
-                                <a-menu-item key="remove">删除</a-menu-item>
+                                <a-menu-item key="remove">{{$t('lang.remove')}}</a-menu-item>
                             </a-menu>
                         </template>
                     </a-dropdown>
                     <a-dropdown :trigger="['contextmenu']" v-else>
-                        <span >{{ title }}</span>
+                        <span>{{ title }}</span>
                     </a-dropdown>
                 </template>
             </a-tree>
@@ -52,10 +56,10 @@
                             <thead class="ant-table-thead">
                                 <tr>
                                     <th key="name" width="200">
-                                        <span class="ant-table-header-column"><div><span class="ant-table-column-title"><span> Action</span></div></span>
+                                        <span class="ant-table-header-column"><div><span class="ant-table-column-title"><span>{{$t('lang.action')}}</span></div></span>
                                     </th>
                                     <th key="age">
-                                        <span class="ant-table-header-column"><div><span class="ant-table-column-title">Content</span></div></span>
+                                        <span class="ant-table-header-column"><div><span class="ant-table-column-title">{{$t('lang.content')}}</span></div></span>
                                     </th>
                                 </tr>
                             </thead>
@@ -114,7 +118,7 @@
         pageSize: number = 20;
         total: number = 0;
         treeData: any = [{
-            title: "Publish",
+            title: this.$t('lang.publish'),
             key: "",
             selectable: false,
             slots: {
@@ -122,7 +126,7 @@
             },
             children:[]
         }, {
-            title: "Subscription",
+            title: this.$t('lang.subscription'),
             key: "",
             selectable: false,
             slots: {

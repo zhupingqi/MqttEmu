@@ -1,5 +1,5 @@
 ﻿<template>
-    <a-drawer :title="$t('lang.sensor')+'/'+$t('lang.script')"
+    <a-drawer :title="$t('lang.sensor')"
               placement="right"
               :closable="true"
               :maskClosable="false"
@@ -94,8 +94,8 @@
             let _this = this;
 
             this.$confirm({
-                title: 'Remove script',
-                content: 'Are you sure remove this script?',
+                title: this.$t('lang.removeSensor').toString(),
+                content: this.$t('lang.removeSensorContent').toString(),
                 okText: 'Yes',
                 okType: 'danger',
                 cancelText: 'No',

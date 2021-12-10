@@ -80,7 +80,7 @@ export class PoweredOnDevice {
             clientId: opts.clientId,
             keepalive: opts.keepalive,
             clean: opts.clean,
-            reconnectPeriod: opts.reconnectPeriod ? 5000 : 0,
+            reconnectPeriod: opts.reconnectPeriod,
             protocolVersion,
             connectTimeout: opts.connectTimeout
         }
@@ -286,7 +286,7 @@ export class PoweredOnDevice {
                     });
                 }
             } else {
-                this.log("unsubscribed", topic, JSON.stringify(payload.toString()));
+                this.log("unsubscribed", topic, payload.toString());
             }
         });
     }

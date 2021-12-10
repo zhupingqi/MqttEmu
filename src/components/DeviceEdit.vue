@@ -9,7 +9,7 @@
               :width="600"
               :bodyStyle="{ padding: '0 24px' }"
               @close="onClose">
-        <a-form-model :model="form" :rules="rules" :label-col="{span:8}" :wrapper-col="{span:16}" id="form_device_edit">
+        <a-form-model :model="form" :rules="rules" :label-col="{span:8}" :wrapper-col="{span:16}" id="form_device_edit" ref="ruleForm">
             <div style="padding-top: 8px"><b>{{$t('lang.general')}}</b></div>
             <a-card>
                 <a-form-model-item :label="$t('lang.name')">
@@ -36,7 +36,7 @@
                     </a-select>
                     <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== null"></component>
                 </a-form-model-item>
-                <a-form-model-item :label="$t('lang.client_Id')">
+                <a-form-model-item :label="$t('lang.clientId')">
                     <a-input v-model="form.clientId" />
                 </a-form-model-item>
                 <a-form-model-item :label="$t('lang.protocol')">
@@ -76,17 +76,17 @@
                         </a-radio-group>
                     </a-form-model-item>
                     <template v-if="form.certType === 'self'">
-                        <a-form-model-item :label="$t('lang.ca_certificate')">
+                        <a-form-model-item :label="$t('lang.caCertificate')">
                             <a-textarea placeholder="CA certificates in PEM format" v-model="form.ca" :rows="4" />
                         </a-form-model-item>
-                        <a-form-model-item :label="$t('lang.cert_certificate')">
+                        <a-form-model-item :label="$t('lang.certCertificate')">
                             <a-textarea placeholder="Cert chains in PEM format" v-model="form.cert" :rows="4" />
                         </a-form-model-item>
                         <a-form-model-item label="Keys">
                             <a-textarea placeholder="Keys in PEM format" v-model="form.key" :rows="4" />
                         </a-form-model-item>
                     </template>
-                    <a-form-model-item :label="$t('lang.ssl_secure')">
+                    <a-form-model-item :label="$t('lang.sslSecure')">
                         <a-switch v-model="form.tls_certificate_secure" />
                     </a-form-model-item>
                 </template>
@@ -102,8 +102,9 @@
                 <a-form-model-item :label="$t('lang.cleanSession')">
                     <a-switch v-model="form.clean" />
                 </a-form-model-item>
-                <a-form-model-item :label="$t('lang.auto_teconnect')">
-                    <a-switch v-model="form.reconnectPeriod" />
+                <a-form-model-item :label="$t('lang.reconnect')">
+                    <a-input-number :default-value="5000" v-model="form.reconnectPeriod" />
+                    <span>&nbsp;&nbsp;{{$t('lang.reconnect_tips')}}</span>
                 </a-form-model-item>
                 <a-form-model-item :label="['Mqtt ' + $t('lang.version')]">
                     <a-radio-group v-model="form.mqttVersion">
@@ -183,7 +184,7 @@
     export default class DeviceEdit extends Vue {
         visible: boolean = false;
         id?: number = undefined;
-        title: string = "New Device";
+        title: string = "";
         algs: any = ["Aliyun"];
         alg_name: string | null = null;
         extra: any | null = null;
@@ -281,16 +282,20 @@
         }
 
         submit() {
-            if (this.id) {
-                respository.device.update(this.id, this.form.name, this.form, this.deviceType, this.alg_name, this.extra).then(() => {
-                    bus.$emit("updateDevice", this.id);
+            (this.$refs.ruleForm as any).validate((valid: any) => {
+                if (valid) {
+                    if (this.id) {
+                        respository.device.update(this.id, this.form.name, this.form, this.deviceType, this.alg_name, this.extra).then(() => {
+                            bus.$emit("updateDevice", this.id);
 
-                });
-            }
-            else
-                respository.device.add(this.form.name, this.form, this.deviceType, this.alg_name, this.extra);
+                        });
+                    }
+                    else
+                        respository.device.add(this.form.name, this.form, this.deviceType, this.alg_name, this.extra);
 
-            this.onClose();
+                    this.onClose();
+                }
+            });
         }
 
         created() {

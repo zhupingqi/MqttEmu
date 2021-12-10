@@ -29,13 +29,13 @@
           zIndex: 3,
         }">
             <a-button :style="{ marginRight: '8px' }" @click="testScript">
-                Test
+                {{$t('lang.test')}}
             </a-button>
             <a-button :style="{ marginRight: '8px' }" @click="onClose">
-                Cancel
+                {{$t('lang.cancel')}}
             </a-button>
             <a-button type="primary" @click="submit">
-                Submit
+                {{$t('lang.submit')}}
             </a-button>
         </div>
     </a-drawer>
@@ -63,7 +63,7 @@
             comment:"",
             code: `/**
 * 将设备raw数据转换为json格式数据
-* 入参：$ JQuery对象,data byte[]数组
+* 入参：$ JQuery对象
 * 出参：jsonObj JSON对象 不能为空
 */
 function readSensor($,data) {

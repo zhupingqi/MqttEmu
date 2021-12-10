@@ -9,11 +9,11 @@
               :width="600"
               :bodyStyle="{ padding: '0 24px' }"
               @close="onClose">
-        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_pub_edit">
+        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_pub_edit" ref="ruleForm">
             <a-form-model-item :label="$t('lang.name')">
                 <a-input v-model="form.name" />
             </a-form-model-item>
-            <a-form-model-item label="Topic">
+            <a-form-model-item :label="$t('lang.topic')">
                 <a-input v-model="form.topic" />
             </a-form-model-item>
             <a-form-model-item label="QoS">
@@ -23,15 +23,15 @@
                     <a-radio :value="2">2</a-radio>
                 </a-radio-group>
             </a-form-model-item>
-            <a-form-model-item label="Enable">
+            <a-form-model-item :label="$t('lang.enable')">
                 <a-switch v-model="form.enable" />
             </a-form-model-item>
-            <a-form-model-item label="Interval">
+            <a-form-model-item :label="$t('lang.interval')">
                 <a-input-number :default-value="60" v-model="form.interval" />
             </a-form-model-item>
-            <a-form-model-item label="变量">
+            <a-form-model-item :label="$t('lang.sensor')">
                 <a-transfer :data-source="sensors"
-                            :titles="['传感器', '变量']"
+                            :titles="[$t('lang.sensor'), $t('lang.variable')]"
                             :target-keys="targetKeys"
                             :render="item => item.title"
                             :show-select-all="false"
@@ -60,8 +60,12 @@
                     </template>
                     <template slot="footer" slot-scope="props">
                         <a-space style="float:right;padding:2px" v-if="props.direction === 'right'">
-                            <a-button size="small" @click="moveUp" :disabled="moveUpDisabled" icon="arrow-up" />
-                            <a-button size="small" @click="moveDown" :disabled="moveDownDisabled" icon="arrow-down" />
+                            <a-tooltip :title="$t('lang.moveUp')" mouseEnterDelay="1">
+                                <a-button size="small" @click="moveUp" :disabled="moveUpDisabled" icon="arrow-up" />
+                            </a-tooltip>
+                            <a-tooltip :title="$t('lang.moveDown')" mouseEnterDelay="1">
+                                <a-button size="small" @click="moveDown" :disabled="moveDownDisabled" icon="arrow-down" />
+                            </a-tooltip>
                         </a-space>
                     </template>
                 </a-transfer>
@@ -82,10 +86,10 @@
           zIndex: 999,
         }">
             <a-button :style="{ marginRight: '8px' }" @click="onClose">
-                Cancel
+                {{$t('lang.cancel')}}
             </a-button>
             <a-button type="primary" @click="submit">
-                Submit
+                {{$t('lang.submit')}}
             </a-button>
         </div>
     </a-drawer>
@@ -222,7 +226,7 @@
             protocol: 'script',
             code: `/**
 * 将设备raw数据转换为json格式数据
-* 入参：rawData byte[]数组
+* 入参：rawData 传感器数据对象
 * 出参：jsonObj JSON对象 不能为空
 */
 function transformPayload(rawData) {
@@ -233,15 +237,19 @@ function transformPayload(rawData) {
         };
 
         submit() {
-            this.form.code = this.editor.getValue();
-            this.form.map = this.targetKeys;
+            (this.$refs.ruleForm as any).validate((valid: any) => {
+                if (valid) {
+                    this.form.code = this.editor.getValue();
+                    this.form.map = this.targetKeys;
 
-            if (this.id)
-                respository.topic.update(this.id, this.form);
-            else
-                respository.topic.add(this.device_id, "pub", this.form);
+                    if (this.id)
+                        respository.topic.update(this.id, this.form);
+                    else
+                        respository.topic.add(this.device_id, "pub", this.form);
 
-            this.onClose();
+                    this.onClose();
+                }
+            });
         }
 
         onChange(targetKeys: any[]) {
@@ -302,14 +310,14 @@ function transformPayload(rawData) {
                 this.visible = true;
                 this.id = e.id;
                 this.device_id = e.device_id;
-                this.title = "New Publish";
+                this.title = this.$t('lang.newPublish').toString();
                 this.form = $.extend({}, this.defaultOpts);
                 this.targetSelectedKeys = [];
 
                 if (e.id != null) {
                     respository.topic.get(e.id).then(d => {
                         if (d) {
-                            this.title = "Edit Publish";
+                            this.title = this.$t('lang.editPublish').toString();
                             this.form = $.extend({}, this.defaultOpts, d);
 
                             this.editor.setValue(this.form.code);

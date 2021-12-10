@@ -14,10 +14,10 @@
             <a-col span="16">
                 <a-select style="width: 120px" v-model="extra.securemode">
                     <a-select-option value="2">
-                        TLS直连模式
+                        TLS{{$t('lang.directMode')}}
                     </a-select-option>
                     <a-select-option value="3">
-                        TCP直连模式
+                        TCP{{$t('lang.directMode')}}
                     </a-select-option>
                 </a-select>
             </a-col>
@@ -46,7 +46,7 @@
         </a-row>
         <a-row>
             <a-button type="primary" @click="submit">
-                填充
+                {{$t('lang.fill')}}
             </a-button>
         </a-row>
     </a-card>

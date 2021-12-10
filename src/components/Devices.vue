@@ -31,7 +31,7 @@
             <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right" class="debug_page" />
         </template>
         <template v-else>
-            {{$t('lang.no_device')}}
+            {{$t('lang.noDevice')}}
         </template>
     </a-drawer>
 </template>

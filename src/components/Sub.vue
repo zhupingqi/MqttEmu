@@ -9,11 +9,11 @@
               :width="600"
               :bodyStyle="{ padding: '0 24px' }"
               @close="onClose">
-        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_sub_edit">
+        <a-form-model :model="form" :rules="rules" :label-col="{span:4}" :wrapper-col="{span:20}" id="form_sub_edit" ref="ruleForm">
             <a-form-model-item :label="$t('lang.name')">
                 <a-input v-model="form.name" />
             </a-form-model-item>
-            <a-form-model-item label="Topic">
+            <a-form-model-item :label="$t('lang.topic')">
                 <a-input v-model="form.topic" />
             </a-form-model-item>
             <a-form-model-item label="QoS">
@@ -23,14 +23,14 @@
                     <a-radio :value="2">2</a-radio>
                 </a-radio-group>
             </a-form-model-item>
-            <a-form-model-item label="Publish">
+            <a-form-model-item :label="$t('lang.publish')">
                 <a-select style="width: 120px" @change="pubChange" v-model="form.pubId" option-label-prop="label">
                     <a-select-option v-for="d in pubs" :label="d.label" :value="d.value">
                         {{ d.label }}
-                    </a-select-option>Publish
+                    </a-select-option>
                 </a-select>
                 <a-button type="link" @click="()=>{ form.pubId = null }">
-                    remove
+                    {{$t('lang.remove')}}
                 </a-button>
             </a-form-model-item>
         </a-form-model>
@@ -46,10 +46,10 @@
           zIndex: 999,
         }">
             <a-button :style="{ marginRight: '8px' }" @click="onClose">
-                Cancel
+                {{$t('lang.cancel')}}
             </a-button>
             <a-button type="primary" @click="submit">
-                Submit
+                {{$t('lang.submit')}}
             </a-button>
         </div>
     </a-drawer>
@@ -66,7 +66,7 @@
         visible: boolean = false;
         id?: number = undefined;
         device_id: number = 0;
-        title: string = "New Sub";
+        title: string = "";
         form: any = {};
         rules: any = {
             name: [
@@ -109,12 +109,16 @@
         };
 
         submit() {
-            if (this.id)
-                respository.topic.update(this.id, this.form);
-            else
-                respository.topic.add(this.device_id, "sub", this.form);
+            (this.$refs.ruleForm as any).validate((valid: any) => {
+                if (valid) {
+                    if (this.id)
+                        respository.topic.update(this.id, this.form);
+                    else
+                        respository.topic.add(this.device_id, "sub", this.form);
 
-            this.onClose();
+                    this.onClose();
+                }
+            });
         }
 
         onClose() {
@@ -131,13 +135,13 @@
                 this.visible = true;
                 this.id = e.id;
                 this.device_id = e.device_id;
-                this.title = "New Subscription";
+                this.title = this.$t('lang.newSubscription').toString();
                 this.form = $.extend({}, this.defaultOpts);
 
                 if (e.id != null) {
                     respository.topic.get(e.id).then(d => {
                         if (d) {
-                            this.title = "Edit Subscription";
+                            this.title = this.$t('lang.editSubscription').toString();
                             this.form = $.extend({}, this.defaultOpts, d);
                         }
                     });

@@ -23,13 +23,13 @@
           zIndex: 3,
         }">
             <a-button :style="{ marginRight: '8px' }" @click="testScript">
-                Test
+                {{$t('lang.test')}}
             </a-button>
             <a-button :style="{ marginRight: '8px' }" @click="onClose">
-                Cancel
+                {{$t('lang.cancel')}}
             </a-button>
             <a-button type="primary" @click="submit">
-                Submit
+                {{$t('lang.submit')}}
             </a-button>
         </div>
     </a-drawer>
@@ -84,7 +84,7 @@
 
             const h = this.$createElement;
             this.$info({
-                title: 'Script test result',
+                title: this.$t('lang.testResult').toString(),
                 content: h('div', {}, [
                     h('p', msg.toString())
                 ]),

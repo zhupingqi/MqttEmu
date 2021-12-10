@@ -9,11 +9,21 @@
                 <Debug v-bind:device_id="device.device_id" v-bind:connected="device.connected"></Debug>
             </a-tab-pane>
             <a-space :size="12" slot="tabBarExtraContent" v-if="devices.length > 0 && current">
-                <a-icon type="api" @click="switchOnDevice" v-if="!current.connected && !current.connecting" />
-                <a-icon type="loading" @click="cancelSwitchOn" v-if="current.connecting"/>
-                <a-icon type="poweroff" @click="switchOffDevice" v-if="current.connected && !current.connecting" />
-                <a-icon type="delete" @click="deleteLog" />
-                <a-icon type="close" @click="removeDevice" v-if="!current.connected" />
+                <a-tooltip :title="$t('lang.connect')" mouseEnterDelay="1" v-if="!current.connected && !current.connecting">
+                    <a-icon type="api" @click="switchOnDevice" />
+                </a-tooltip>
+                <a-tooltip :title="$t('lang.disconnect')" mouseEnterDelay="1" v-if="current.connecting">
+                    <a-icon type="loading" @click="cancelSwitchOn" />
+                </a-tooltip>
+                <a-tooltip :title="$t('lang.disconnect')" mouseEnterDelay="1" v-if="current.connected && !current.connecting">
+                    <a-icon type="poweroff" @click="switchOffDevice" />
+                </a-tooltip>
+                <a-tooltip :title="$t('lang.deleteLog')" mouseEnterDelay="1">
+                    <a-icon type="delete" @click="deleteLog" />
+                </a-tooltip>
+                <a-tooltip :title="$t('lang.remove')" mouseEnterDelay="1" v-if="!current.connected">
+                    <a-icon type="close" @click="removeDevice" />
+                </a-tooltip>
             </a-space>
         </a-tabs>
     </template>
@@ -68,10 +78,6 @@
             });
         }
 
-        enable(enable: boolean, e: any) {
-
-        }
-
         switchOnDevice() {
             this.switchOn(this.current);
         }
@@ -88,8 +94,8 @@
             let _this = this;
 
             this.$confirm({
-                title: 'Remove device',
-                content: 'Are you sure remove this device?',
+                title: this.$t('lang.removeDevice').toString(),
+                content: this.$t('lang.removeDeviceContent').toString(),
                 okText: 'Yes',
                 okType: 'danger',
                 cancelText: 'No',
@@ -106,8 +112,8 @@
             let _this = this;
 
             this.$confirm({
-                title: 'Clear history',
-                content: 'Are you sure clear this history?',
+                title: this.$t('lang.deleteLog').toString(),
+                content: this.$t('lang.deleteLogContent').toString(),
                 okText: 'Yes',
                 okType: 'danger',
                 cancelText: 'No',
