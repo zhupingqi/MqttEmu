@@ -13,10 +13,6 @@ module.exports = {
         app: {
             entry: 'src/app.ts',
             filename: 'index.html'
-        },
-        help: {
-            entry: 'src/help.ts',
-            filename: 'help.html'
         }
     },
     css: {

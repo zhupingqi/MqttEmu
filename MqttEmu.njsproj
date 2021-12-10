@@ -41,7 +41,6 @@
     <Content Include="public\img\icon48.png" />
     <Content Include="public\img\logo200.png" />
     <Content Include="public\img\reward.jpg" />
-    <Content Include="src\Help.vue" />
     <Content Include="src\components\clientopt\Aliyun.vue" />
     <Content Include="src\components\ScriptEdit.vue" />
     <Content Include="src\components\Sub.vue" />
@@ -109,7 +108,6 @@
     <TypeScriptCompile Include="src\core\utils.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="src\help.ts" />
     <TypeScriptCompile Include="src\main.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
