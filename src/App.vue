@@ -68,7 +68,6 @@
     import bus from '@/core/utils';
     import { respository } from './core/respository';
 
-    const ipc = require('electron').ipcRenderer;
     const shell = require('electron').shell;
 
     @Component({
@@ -101,10 +100,6 @@
 
         showSensors() {
             bus.$emit("showSensors", null);
-        }
-
-        showHelp() {
-            ipc.send("showHelpWindow");
         }
 
         showGithub() {

@@ -52,7 +52,7 @@
                 <a-form-model-item :label="$t('lang.host')">
                     <a-input v-model="form.host" />
                 </a-form-model-item>
-                <a-form-model-item label="Port">
+                <a-form-model-item :label="$t('lang.port')">
                     <a-input v-model="form.port" />
                 </a-form-model-item>
                 <a-form-model-item :label="$t('lang.username')">
@@ -190,6 +190,7 @@
         extra: any | null = null;
         clientOptComponent: string = "ClientOpt_Aliyun";
         deviceType: db.DeviceType = "normal";
+        fromEdit = false;
 
         defaultOpts: MqttOptions = {
             name: '',
@@ -266,6 +267,8 @@
 
         onClose() {
             this.visible = false;
+            if (this.fromEdit)
+                bus.$emit("showDeviceList", null);
         }
 
         onAlgChange() {
@@ -311,6 +314,7 @@
                 this.extra = {};
                 this.deviceType = "normal";
                 this.title = this.$t('lang.newDevice').toString();
+                this.fromEdit = false;
 
                 if (e != null) {
                     respository.device.get(e).then(d => {
@@ -321,6 +325,7 @@
                             this.alg_name = d.alg_name ? d.alg_name : null;
                             this.extra = d.extra ? d.extra : {};
                             this.deviceType = d.type;
+                            this.fromEdit = true;
                         }
                     });
                 }

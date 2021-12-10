@@ -68,5 +68,6 @@ export const lang = {
     directMode: "derect mode",
     home: "home",
     source: "source",
-    testResult: "test result"
+    testResult: "test result",
+    port:"port"
 };

@@ -69,5 +69,6 @@ export const lang = {
     directMode: "直连模式",
     home: "主页",
     source: "源码",
-    testResult:"测试结果"
+    testResult: "测试结果",
+    port:"端口"
 };

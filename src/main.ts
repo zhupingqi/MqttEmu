@@ -9,7 +9,7 @@ app.whenReady().then(() => {
         minWidth: 1280,
         minHeight: 960,
         webPreferences: {
-            devTools: true,//process.env.NODE_ENV !== 'production',
+            devTools: process.env.NODE_ENV !== 'production',
             nodeIntegration: true,
             contextIsolation: false,
             webSecurity: false,
