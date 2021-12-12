@@ -30,11 +30,11 @@
                         <a-select-option v-for="a in algs" :label="a" :value="a">
                             {{ a }}
                         </a-select-option>
-                        <a-select-option label="无" value="null">
+                        <a-select-option label="无" value="">
                             无
                         </a-select-option>
                     </a-select>
-                    <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== null"></component>
+                    <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== ''"></component>
                 </a-form-model-item>
                 <a-form-model-item :label="$t('lang.clientId')">
                     <a-input v-model="form.clientId" />
@@ -77,13 +77,13 @@
                     </a-form-model-item>
                     <template v-if="form.certType === 'self'">
                         <a-form-model-item :label="$t('lang.caCertificate')">
-                            <a-textarea placeholder="CA certificates in PEM format" v-model="form.ca" :rows="4" />
+                            <a-textarea placeholder="CA certificates in PEM format, double click to open the file" v-model="form.ca" :rows="4" @dblclick="showFileDialog('ca')"/>
                         </a-form-model-item>
                         <a-form-model-item :label="$t('lang.certCertificate')">
-                            <a-textarea placeholder="Cert chains in PEM format" v-model="form.cert" :rows="4" />
+                            <a-textarea placeholder="Cert chains in PEM format, double click to open the file" v-model="form.cert" :rows="4" @dblclick="showFileDialog('cert')"/>
                         </a-form-model-item>
-                        <a-form-model-item label="Keys">
-                            <a-textarea placeholder="Keys in PEM format" v-model="form.key" :rows="4" />
+                        <a-form-model-item label="Key">
+                            <a-textarea placeholder="Keys in PEM format, double click to open the file" v-model="form.key" :rows="4" @dblclick="showFileDialog('key')"/>
                         </a-form-model-item>
                     </template>
                     <a-form-model-item :label="$t('lang.sslSecure')">
@@ -102,7 +102,7 @@
                 <a-form-model-item :label="$t('lang.cleanSession')">
                     <a-switch v-model="form.clean" />
                 </a-form-model-item>
-                <a-form-model-item :label="$t('lang.reconnect')">
+                <a-form-model-item :label="[$t('lang.reconnect')+'(ms)']">
                     <a-input-number :default-value="5000" v-model="form.reconnectPeriod" />
                     <span>&nbsp;&nbsp;{{$t('lang.reconnect_tips')}}</span>
                 </a-form-model-item>
@@ -176,6 +176,9 @@
     import { MqttOptions } from '@/core/mqtt-options';
     import ClientOpt_Aliyun from "@/components/clientopt/Aliyun.vue";
 
+    const fs = require("fs");
+    const ipc = require('electron').ipcRenderer;
+
     @Component({
         components: {
             ClientOpt_Aliyun
@@ -186,7 +189,7 @@
         id?: number = undefined;
         title: string = "";
         algs: any = ["Aliyun"];
-        alg_name: string | null = null;
+        alg_name: string = "";
         extra: any | null = null;
         clientOptComponent: string = "ClientOpt_Aliyun";
         deviceType: db.DeviceType = "normal";
@@ -284,6 +287,10 @@
             }
         }
 
+        showFileDialog(elem: any) {
+            ipc.send("showDialogWindow", elem);
+        }
+
         submit() {
             (this.$refs.ruleForm as any).validate((valid: any) => {
                 if (valid) {
@@ -306,11 +313,13 @@
         }
 
         mounted() {
+            let _this = this;
+
             bus.$on('eidtDevice', (e: any) => {
                 this.visible = true;
                 this.id = undefined;
                 this.form = $.extend({}, this.defaultOpts);
-                this.alg_name = null;
+                this.alg_name = "";
                 this.extra = {};
                 this.deviceType = "normal";
                 this.title = this.$t('lang.newDevice').toString();
@@ -322,7 +331,7 @@
                             this.id = e;
                             this.title = this.$t('lang.editDevice').toString();
                             this.form = $.extend({}, this.defaultOpts, d.options);
-                            this.alg_name = d.alg_name ? d.alg_name : null;
+                            this.alg_name = d.alg_name;
                             this.extra = d.extra ? d.extra : {};
                             this.deviceType = d.type;
                             this.fromEdit = true;
@@ -330,6 +339,33 @@
                     });
                 }
             });
+
+            ipc.on('openFileResult', (event: any, arg: any) => {
+                if (!arg.canceled) {
+                    var path = arg.filePaths[0];
+                    fs.readFile(path, (err: any, data: string) => {
+                        if (err)
+                            throw err;
+
+                        switch (arg.elem) {
+                            case "ca": {
+                                _this.form.ca = data;
+                                break;
+                            }
+                            case "cert": {
+                                _this.form.cert = data;
+                                break;
+                            }
+                            case "key": {
+                                _this.form.key = data;
+                                break;
+                            }
+                        }
+
+                        console.log(data);
+                    });
+                }
+            })
         }
     }
 </script>

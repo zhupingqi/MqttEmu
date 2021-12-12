@@ -32,7 +32,7 @@ export namespace respository {
             return db.context.device.where("id").equals(id).first();
         }
 
-        add(name: string, options: MqttOptions, type: db.DeviceType = "normal", alg_name: string | null = null, extra: any | null = null) {
+        add(name: string, options: MqttOptions, type: db.DeviceType = "normal", alg_name: string = "", extra: any | null = null) {
             var d = new db.Device(name, options);
             d.create = new Date();
             d.alg_name = alg_name;

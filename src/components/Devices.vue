@@ -126,7 +126,6 @@
                 return "file-unknown";
 
             let u = new URL(opt.protocol + '://' + opt.host);
-            console.log(u.host);
             if (opt.host.endsWith("aliyuncs.com"))
                 return "aliyun";
             else

@@ -47,7 +47,7 @@ export namespace db {
             mqttVersion: "3.1.1",
             clientIdWithTime: false
         };
-        alg_name: string | null = null;
+        alg_name: string = "";
         extra: any = {};
 
         constructor();

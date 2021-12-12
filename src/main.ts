@@ -1,6 +1,6 @@
-const { app, BrowserWindow, protocol, Menu } = require('electron');
+const { app, BrowserWindow, protocol, Menu, dialog, ipcMain } = require('electron');
 const path = require('path');
-const ipc = require('electron').ipcMain;
+import $ from 'jquery';
 
 app.whenReady().then(() => {
     //Menu.setApplicationMenu(null);
@@ -9,40 +9,34 @@ app.whenReady().then(() => {
         minWidth: 1280,
         minHeight: 960,
         webPreferences: {
-            devTools: process.env.NODE_ENV !== 'production',
+            devTools: true,//process.env.NODE_ENV !== 'production',
             nodeIntegration: true,
             contextIsolation: false,
             webSecurity: false,
-            useContentSize: true,
-            enableRemoteModule: true
+            //useContentSize: true,
+            //enableRemoteModule: true
         }
     });
 
     protocol.interceptFileProtocol('app', (req: any, callback: any) => {
         const url = req.url.substr(6);
         callback(decodeURI(url));
-    }, (error: any) => {
-        if (error) {
-            console.error('Failed to register protocol');
-        }
     });
 
     win.loadFile(path.join(__dirname, '../index.html'));
 
-    ipc.on("showHelpWindow", () => {
-        let newWin = new BrowserWindow({
-            minWidth: 800,
-            minHeight: 600,
-            webPreferences: {
-                devTools: true,
-                nodeIntegration: true,
-                contextIsolation: false,
-                webSecurity: false,
-                useContentSize: true,
-                enableRemoteModule: true
-            }
-        });
+    ipcMain.on("showDialogWindow", (event: any, arg: any) => {
+        dialog.showOpenDialog({
+            properties: ['openFile'],
+            filters: [{ name: 'CA|KEY', extensions: ['crt', 'key', 'pem', 'jks', 'der', 'cer', 'pfx'] }]
+        }).then((r: any) => {
 
-        newWin.loadFile(path.join(__dirname, '../help.html'));
+            let d = {
+                ...r,
+                elem: arg
+            };
+
+            event.reply('openFileResult', d);
+        });
     });
 });
