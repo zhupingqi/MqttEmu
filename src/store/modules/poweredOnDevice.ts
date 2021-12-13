@@ -352,6 +352,10 @@ export class PoweredOnDevice {
             });
 
             this.client.on("packetreceive", (cb: any) => {
+                if (cb.cmd === "suback" || cb.cmd === "unsuback") {
+                    _this.log(cb.cmd, "", cb);
+                }
+
                 console.log("receive " + JSON.stringify(cb));
             });
         }

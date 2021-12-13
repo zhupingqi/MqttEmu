@@ -25,6 +25,12 @@
             <a-layout-header style="background: #fff; padding: 0">
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
                 <a-space style="float:right;margin-right:24px" :size="12">
+                    <a-tooltip placement="bottom" mouseEnterDelay="1">
+                        <template slot="title">
+                            <img src="app://./img/my.png" width="150" />
+                        </template>
+                        <a-icon type="wechat" />
+                    </a-tooltip>
                     <a-tooltip :title="$t('lang.source')" mouseEnterDelay="1">
                         <a-icon type="github" @click="showGithub" />
                     </a-tooltip>
@@ -38,7 +44,7 @@
                         <a-select-option value="en">
                             English
                         </a-select-option>
-                    </a-select>                    
+                    </a-select>
                 </a-space>
             </a-layout-header>
             <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">

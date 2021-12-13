@@ -125,7 +125,7 @@ export namespace db {
         }
     }
 
-    export type DeviceAction = "online" | "offline" | "publish" | "subscribe" | "unsubscribed";
+    export type DeviceAction = "online" | "offline" | "publish" | "subscribe" | "unsubscribed" | "suback" | "unsuback";
 
     export class Log {
         id?: number = undefined;
