@@ -175,20 +175,22 @@
     import { MqttClient, IClientOptions } from 'mqtt';
     import { MqttOptions } from '@/core/mqtt-options';
     import ClientOpt_Aliyun from "@/components/clientopt/Aliyun.vue";
+    import ClientOpt_Tencent from "@/components/clientopt/Tencent.vue";
 
     const fs = require("fs");
     const ipc = require('electron').ipcRenderer;
 
     @Component({
         components: {
-            ClientOpt_Aliyun
+            ClientOpt_Aliyun,
+            ClientOpt_Tencent
         }
     })
     export default class DeviceEdit extends Vue {
         visible: boolean = false;
         id?: number = undefined;
         title: string = "";
-        algs: any = ["Aliyun"];
+        algs: any = ["Aliyun","Tencent"];
         alg_name: string = "";
         extra: any | null = null;
         clientOptComponent: string = "ClientOpt_Aliyun";
@@ -275,7 +277,7 @@
         }
 
         onAlgChange() {
-            if (this.alg_name != null)
+            if (this.alg_name && this.alg_name !== "")
                 this.clientOptComponent = "ClientOpt_" + this.alg_name;
         }
 
@@ -297,7 +299,6 @@
                     if (this.id) {
                         respository.device.update(this.id, this.form.name, this.form, this.deviceType, this.alg_name, this.extra).then(() => {
                             bus.$emit("updateDevice", this.id);
-
                         });
                     }
                     else
@@ -335,6 +336,8 @@
                             this.extra = d.extra ? d.extra : {};
                             this.deviceType = d.type;
                             this.fromEdit = true;
+
+                            this.onAlgChange();
                         }
                     });
                 }
@@ -343,26 +346,24 @@
             ipc.on('openFileResult', (event: any, arg: any) => {
                 if (!arg.canceled) {
                     var path = arg.filePaths[0];
-                    fs.readFile(path, (err: any, data: string) => {
+                    fs.readFile(path, (err: any, data: any) => {
                         if (err)
                             throw err;
 
                         switch (arg.elem) {
                             case "ca": {
-                                _this.form.ca = data;
+                                _this.form.ca = data.toString();
                                 break;
                             }
                             case "cert": {
-                                _this.form.cert = data;
+                                _this.form.cert = data.toString();
                                 break;
                             }
                             case "key": {
-                                _this.form.key = data;
+                                _this.form.key = data.toString();
                                 break;
                             }
                         }
-
-                        console.log(data);
                     });
                 }
             })
