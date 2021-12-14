@@ -24,6 +24,7 @@ export class PoweredOnDevice {
     client: MqttClient | null = null;
     intervalId: NodeJS.Timer | null = null;
     counter: number = 0;
+    context: any = {};
 
     constructor() { }
 
@@ -141,7 +142,7 @@ export class PoweredOnDevice {
         return options
     }
 
-    runScript(code: string, funs: string = "") {
+    runCommonScript(code: string, funs: string = "") {
         let msg: any = {};
 
         try {
@@ -198,7 +199,7 @@ export class PoweredOnDevice {
 
             respository.sensor.getWithId(ids).then(ds => {
                 ds.forEach(ss => {
-                    let r = this.runScript(ss.code);
+                    let r = this.runCommonScript(ss.code);
                     for (let p in r) {
                         s[ss.id!][p] = r[p];
                     }
@@ -215,8 +216,15 @@ export class PoweredOnDevice {
                     this.readData(val, raw);
                 });
 
-                let func = new Function("raw", "payload", `let c = raw;let p = payload; let f = ${t.code};return f(c,p);${funs}`);
-                let result = func(raw, subPayload);
+                var params = {
+                    sensor:raw,
+                    context: this.context,
+                    subPayload: subPayload,
+                    $:$
+                };
+
+                let func = new Function("content", `let c = content; let f = ${t.code};return f(c);${funs}`);
+                let result = func(params);
                 if (this.device!.type === "normal") {
                     if (this.isJSON(result))
                         result = JSON.stringify(result);
@@ -281,8 +289,16 @@ export class PoweredOnDevice {
 
                 if (t.pubId) {
                     respository.topic.get(t.pubId).then(t => {
-                        if(t)
-                            _this.publish(t, payload);
+                        if (t) {
+                            if (this.device!.type === "normal") {
+                                if (payload.toJSON && payload.toJSON().type === "Buffer")
+                                    _this.publish(t, JSON.parse(payload.toString()));
+                                else
+                                    _this.publish(t, payload.toString());
+                            }
+                            else
+                                _this.publish(t, this.toHex(payload));
+                        }
                     });
                 }
             } else {

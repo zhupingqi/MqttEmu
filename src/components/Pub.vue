@@ -225,11 +225,15 @@
             interval: 60,
             protocol: 'script',
             code: `/**
-* 将设备raw数据转换为json格式数据
-* 入参：rawData 传感器数据对象
-* 出参：jsonObj JSON对象 不能为空
+* 将设备数据转换为上报格式数据
+* 入参：data 数据对象
+* data.sensor 传感器数据对象
+* data.context 设备上下文对象
+* data.subPayload 订阅传送过来的数据
+* $ JQuery对象
+* 出参：标准模式返回JSON对象或字符串 透传模式返回Buffer对象
 */
-function transformPayload(rawData) {
+function transformPayload(data) {
     var jsonObj = {};
     return jsonObj;
 }`,
