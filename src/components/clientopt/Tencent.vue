@@ -37,10 +37,7 @@
 </template>
 
 <script lang="ts">
-    import $ from 'jquery';
     import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-    import { respository } from "@/core/respository";
-    import bus from '@/core/utils';
     import cryptoJS from 'crypto-js';
 
     @Component

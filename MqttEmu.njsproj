@@ -43,7 +43,9 @@
     <Content Include="public\img\my.png" />
     <Content Include="public\img\reward.jpg" />
     <Content Include="src\components\clientopt\Tencent.vue" />
-    <Content Include="src\components\clientopt\Aliyun.vue" />
+    <Content Include="src\components\clientopt\Aliyun.vue">
+      <Publish>False</Publish>
+    </Content>
     <Content Include="src\components\ScriptEdit.vue" />
     <Content Include="src\components\Sub.vue" />
     <Content Include="src\components\SensorEdit.vue" />

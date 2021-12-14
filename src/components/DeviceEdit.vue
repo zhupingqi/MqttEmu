@@ -35,6 +35,7 @@
                         </a-select-option>
                     </a-select>
                     <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== ''"></component>
+                    <MyBtn></MyBtn>
                 </a-form-model-item>
                 <a-form-model-item :label="$t('lang.clientId')">
                     <a-input v-model="form.clientId" />
@@ -174,26 +175,19 @@
     import { respository } from "@/core/respository";
     import { MqttClient, IClientOptions } from 'mqtt';
     import { MqttOptions } from '@/core/mqtt-options';
-    import ClientOpt_Aliyun from "@/components/clientopt/Aliyun.vue";
-    import ClientOpt_Tencent from "@/components/clientopt/Tencent.vue";
 
     const fs = require("fs");
     const ipc = require('electron').ipcRenderer;
 
-    @Component({
-        components: {
-            ClientOpt_Aliyun,
-            ClientOpt_Tencent
-        }
-    })
+    @Component
     export default class DeviceEdit extends Vue {
         visible: boolean = false;
         id?: number = undefined;
         title: string = "";
-        algs: any = ["Aliyun","Tencent"];
+        algs: any[] = [];
         alg_name: string = "";
         extra: any | null = null;
-        clientOptComponent: string = "ClientOpt_Aliyun";
+        clientOptComponent: string = "";
         deviceType: db.DeviceType = "normal";
         fromEdit = false;
 
@@ -279,6 +273,10 @@
         onAlgChange() {
             if (this.alg_name && this.alg_name !== "")
                 this.clientOptComponent = "ClientOpt_" + this.alg_name;
+            else
+                this.clientOptComponent = "";
+
+            console.log("onAlgChange");
         }
 
         setOption(opt: any) {
@@ -310,6 +308,33 @@
         }
 
         created() {
+            //fs.opendir(__dirname + '/clientopt/', async (err: any, dir: any) => {
+            //    if (err) {
+            //        console.error(err)
+            //        return
+            //    }
+
+            //    let path = __dirname + '/clientopt/';
+
+            //    for await (let dirent of dir) {
+            //        if (dirent.isFile()) {
+            //            let n = dirent.name.substr(0, dirent.name.lastIndexOf("."));
+            //            let id = "ClientOpt_" + n;
+            //            let cpath = `${__dirname}\\clientopt\\${dirent.name}`;
+
+            //            this.algs.push(n);
+
+            //            Vue.component(id, () => import(cpath));
+            //        }
+            //    }
+            //});
+
+            this.algs = ["Aliyun","Tencent"];
+
+            this.algs.forEach(n => {
+                Vue.component(`ClientOpt_${n}`, () => import(`@/components/clientopt/${n}.vue`));
+            });
+
             this.form = $.extend({}, this.defaultOpts);
         }
 
@@ -366,7 +391,7 @@
                         }
                     });
                 }
-            })
+            })            
         }
     }
 </script>
