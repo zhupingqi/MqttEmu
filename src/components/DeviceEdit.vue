@@ -35,7 +35,6 @@
                         </a-select-option>
                     </a-select>
                     <component :is="clientOptComponent" v-bind:extra="extra" v-on:setOption="setOption" v-if="alg_name !== ''"></component>
-                    <MyBtn></MyBtn>
                 </a-form-model-item>
                 <a-form-model-item :label="$t('lang.clientId')">
                     <a-input v-model="form.clientId" />
@@ -177,7 +176,7 @@
     import { MqttOptions } from '@/core/mqtt-options';
 
     const fs = require("fs");
-    const ipc = require('electron').ipcRenderer;
+    const ipc = require('electron').ipcRenderer
 
     @Component
     export default class DeviceEdit extends Vue {
@@ -271,8 +270,14 @@
         }
 
         onAlgChange() {
-            if (this.alg_name && this.alg_name !== "")
+            if (this.alg_name && this.alg_name !== "") {
                 this.clientOptComponent = "ClientOpt_" + this.alg_name;
+                let c = Vue.extend({
+                    template: "<div>" + this.alg_name + "</div>"
+                });
+
+                Vue.component("generator", c);
+            }
             else
                 this.clientOptComponent = "";
 

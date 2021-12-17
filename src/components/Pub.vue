@@ -14,7 +14,11 @@
                 <a-input v-model="form.name" />
             </a-form-model-item>
             <a-form-model-item :label="$t('lang.topic')">
-                <a-input v-model="form.topic" />
+                <a-input v-model="form.topic">
+                    <template slot="addonAfter">
+                        <ColorPicker v-model="form.color"></ColorPicker>
+                    </template>
+                </a-input>
             </a-form-model-item>
             <a-form-model-item label="QoS">
                 <a-radio-group v-model="form.qos">
@@ -99,13 +103,18 @@
     import $ from 'jquery';
     import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
     import { respository } from "@/core/respository";
+    import ColorPicker from '@/components/ColorPicker.vue';
     import bus from '@/core/utils';
 
     import * as ace from 'brace';
     import 'brace/mode/javascript';
     import 'brace/theme/monokai';
 
-    @Component
+    @Component({
+        components: {
+            ColorPicker
+        }
+    })
     export default class PubEdit extends Vue {
         visible: boolean = false;
         id?: number = undefined;
@@ -220,6 +229,7 @@
         defaultOpts: {} = {
             name: '',
             topic: "",
+            color:"#55895B",
             qos: 0,
             enable: true,
             interval: 60,

@@ -21,8 +21,8 @@
                 <a-tooltip :title="$t('lang.deleteLog')" mouseEnterDelay="1">
                     <a-icon type="delete" @click="deleteLog" />
                 </a-tooltip>
-                <a-tooltip :title="$t('lang.remove')" mouseEnterDelay="1" v-if="!current.connected">
-                    <a-icon type="close" @click="removeDevice" />
+                <a-tooltip :title="$t('lang.remove')" mouseEnterDelay="1">
+                    <a-icon type="close" @click="removeDevice" :disabled="current.connected" class="close-disabled" />
                 </a-tooltip>
             </a-space>
         </a-tabs>
@@ -93,6 +93,9 @@
         removeDevice() {
             let _this = this;
 
+            if (this.current.connected)
+                return;
+
             this.$confirm({
                 title: this.$t('lang.removeDevice').toString(),
                 content: this.$t('lang.removeDeviceContent').toString(),
@@ -162,5 +165,9 @@
 <style scoped>
     #device_list li {
         top: 10px;
+    }
+
+    .close-disabled[disabled="disabled"] {
+        color: gray;
     }
 </style>

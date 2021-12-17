@@ -47,6 +47,7 @@
       <Publish>False</Publish>
     </Content>
     <Content Include="src\components\ScriptEdit.vue" />
+    <Content Include="src\components\ColorPicker.vue" />
     <Content Include="src\components\Sub.vue" />
     <Content Include="src\components\SensorEdit.vue" />
     <Content Include="src\components\Sensors.vue" />

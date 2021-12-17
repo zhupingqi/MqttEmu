@@ -14,10 +14,10 @@ export namespace db {
         constructor() {
             super("MqttEmu");
 
-            this.version(24).stores({
+            this.version(25).stores({
                 device: '++id,name,type,options,create,update,alg_name,extra',
                 desk: '++id,&device_id,create',
-                topic: '++id,*device_id,create,update,type,enable,name,topic,qos,interval,map,code,pubId',
+                topic: '++id,*device_id,create,update,type,enable,name,topic,color,qos,interval,map,code,pubId',
                 sensor: '++id,create,update,&name,comment,code',
                 log: '++id,*device_id,create,action,topic,content',
                 options:'++id,&key,value'
@@ -93,6 +93,7 @@ export namespace db {
         map: string[] = [];
         pubId: number | null = null;
         code: string = "";
+        color: string = "#55895B";
 
         constructor();
         constructor(device_id: number, type?: TopicType);

@@ -14,7 +14,11 @@
                 <a-input v-model="form.name" />
             </a-form-model-item>
             <a-form-model-item :label="$t('lang.topic')">
-                <a-input v-model="form.topic" />
+                <a-input v-model="form.topic">
+                    <template slot="addonAfter">
+                        <ColorPicker v-model="form.color"></ColorPicker>
+                    </template>
+                </a-input>
             </a-form-model-item>
             <a-form-model-item label="QoS">
                 <a-radio-group v-model="form.qos">
@@ -60,8 +64,13 @@
     import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
     import { respository } from "@/core/respository";
     import bus from '@/core/utils';
+    import ColorPicker from '@/components/ColorPicker.vue';
 
-    @Component
+    @Component({
+        components: {
+            ColorPicker
+        }
+    })
     export default class SubEdit extends Vue {
         visible: boolean = false;
         id?: number = undefined;
@@ -103,6 +112,7 @@
         defaultOpts: {} = {
             name: '',
             topic: "",
+            color: "#0000FF",
             qos: 0,
             enable: true,
             sub:0

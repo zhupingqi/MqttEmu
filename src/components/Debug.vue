@@ -80,7 +80,7 @@
                                                 {{ dateFormat(item.create) }}
                                             </td>
                                             <td style="word-break:break-all;vertical-align:top">
-                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag color="green">{{ item.topic }}</a-tag></a-row>
+                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag :color="getTopicColor(item)">{{ item.topic }}</a-tag></a-row>
                                                 <a-row>{{item.content}}</a-row>
                                             </td>
                                         </tr>
@@ -190,6 +190,7 @@
                         title: title,
                         key: d.id,
                         topic: d.topic,
+                        color: d.color,
                         type: d.type,
                         enable: d.enable,
                         selectable: false
@@ -289,6 +290,20 @@
             bus.$on('reload_topic', (device_id: number) => {
                 _this.loadTreeData();
             });
+        }
+
+        getTopicColor(item: any): string {
+            let index = item.action === "publish" ? 0 : 1;
+
+            let t = (this.treeData[index].children as any[]).find((c: any) => {
+                return c.topic == item.topic;
+            });
+
+            if (t) {
+                return t.color;
+            }
+
+            return "#000";
         }
     }
 </script>
