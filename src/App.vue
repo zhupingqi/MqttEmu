@@ -1,7 +1,7 @@
 ﻿<template>
     <a-layout id="app">
         <a-layout-sider v-model="collapsed" collapsible :trigger="null">
-            <div class="logo"></div>
+            <div class="logo" :style="{ 'background-image': getLogoImg()}"></div>
             <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
                 <a-menu-item key="1" @click="newDevice()">
                     <a-icon type="plus" />
@@ -27,7 +27,7 @@
                 <a-space style="float:right;margin-right:24px" :size="12">
                     <a-tooltip placement="bottom" mouseEnterDelay="1">
                         <template slot="title">
-                            <img src="app://./img/my.png" width="150" />
+                            <img :src="getWechatImg()" width="150" />
                         </template>
                         <a-icon type="wechat" />
                     </a-tooltip>
@@ -116,6 +116,28 @@
             shell.openExternal("http://www.imqtt.net");
         }
 
+        getResPath() {
+            let p = ".";
+            if (__filename.endsWith("\\resources\\app/index.html"))
+                p = "resources/app";
+
+            return p;
+        }
+
+        getWechatImg() {
+            let p = this.getResPath();
+
+            let n = (new Date()).getTime() % 2;
+
+            return `app://${p}/img/wechat${n}.png`;
+        }
+
+        getLogoImg() {
+            let p = this.getResPath();
+
+            return `url(app://${p}/img/logo200.png)`;
+        }
+
         onI18nChange() {
             let _this = this;
 
@@ -155,7 +177,6 @@
         margin: 8px 6px 3px 6px;
         text-align: center;
         overflow: hidden;
-        background-image: url(/img/logo200.png);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;

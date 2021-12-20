@@ -40,7 +40,8 @@
     <Content Include="public\img\icon128.png" />
     <Content Include="public\img\icon48.png" />
     <Content Include="public\img\logo200.png" />
-    <Content Include="public\img\my.png" />
+    <Content Include="public\img\wechat1.png" />
+    <Content Include="public\img\wechat0.png" />
     <Content Include="public\img\reward.jpg" />
     <Content Include="src\components\clientopt\Tencent.vue" />
     <Content Include="src\components\clientopt\Aliyun.vue">
