@@ -143,6 +143,7 @@
 
             respository.options.addOrUpdate("locale", this.locale).then(() => {
                 this.$i18n.locale = _this.locale;
+                bus.$emit("i18nChange");
             });
         }
 

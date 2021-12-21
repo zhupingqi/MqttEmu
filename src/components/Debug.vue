@@ -75,7 +75,7 @@
                                     <template v-if="logs.length > 0">
                                         <tr class="ant-table-row ant-table-row-level-0" data-row-key="{{item.id}}" v-for="item in logs">
                                             <td style="vertical-align:top">
-                                                {{ item.action }}
+                                                <a-icon :type="getActionIcon(item.action)" /> {{ item.action }}
                                                 <br />
                                                 {{ dateFormat(item.create) }}
                                             </td>
@@ -117,23 +117,7 @@
         current: number = 1;
         pageSize: number = 20;
         total: number = 0;
-        treeData: any = [{
-            title: this.$t('lang.publish'),
-            key: "",
-            selectable: false,
-            slots: {
-                icon: 'upload'
-            },
-            children:[]
-        }, {
-            title: this.$t('lang.subscription'),
-            key: "",
-            selectable: false,
-            slots: {
-                icon: 'download'
-            },
-            children:[]
-        }];
+        treeData: any = [];
 
         @Prop() device_id!: number;
 
@@ -174,6 +158,23 @@
 
         loadTreeData() {
             let _this = this;
+            this.treeData = [{
+                title: this.$t('lang.publish'),
+                key: "",
+                selectable: false,
+                slots: {
+                    icon: 'upload'
+                },
+                children: []
+            }, {
+                title: this.$t('lang.subscription'),
+                key: "",
+                selectable: false,
+                slots: {
+                    icon: 'download'
+                },
+                children: []
+            }];
 
             respository.topic.getList(this.device_id).then(ds => {
                 _this.treeData[0].children = [];
@@ -290,6 +291,28 @@
             bus.$on('reload_topic', (device_id: number) => {
                 _this.loadTreeData();
             });
+
+            bus.$on("i18nChange", () => {
+                _this.loadTreeData();
+            });
+        }
+
+        getActionIcon(action: string): string {
+            switch (action) {
+                case "online":
+                case "publish":
+                case "subscribe":
+                case "unsubscribed":
+                case "suback":
+                case "unsuback": {
+                    return "up";
+                    break;
+                }
+                default : {
+                    return "down";
+                    break;
+                }
+            }
         }
 
         getTopicColor(item: any): string {
