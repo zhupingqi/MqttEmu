@@ -365,7 +365,10 @@
             let index = item.action === "publish" ? 0 : 1;
 
             let t = (this.treeData[index].children as any[]).find((c: any) => {
-                return c.topic == item.topic && c.key == item.key;
+                if (index == 0)
+                    return c.topic == item.topic && c.key == item.key;
+                else
+                    return c.topic == item.topic;
             });
 
             if (t && t.color) {
