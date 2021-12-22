@@ -177,7 +177,7 @@
                 children: []
             }];
 
-            respository.topic.getList(this.device_id).then(ds => {
+            return respository.topic.getList(this.device_id).then(ds => {
                 _this.treeData[0].children = [];
                 _this.treeData[1].children = [];
 
@@ -268,8 +268,9 @@
         }
 
         created() {
-            this.loadPage(1);
-            this.loadTreeData();
+            this.loadTreeData().then(() => {
+                this.loadPage(1);
+            });
         }
 
         mounted() {
@@ -307,7 +308,7 @@
 
         getTagStyle(item: any) {
             let topic = item.topic;
-            let bColor = this.getTopicColor(item);
+            let bColor = this.getTagBgColor(item);
             let s = {};
 
             if (topic === this.selectTopic) {
@@ -327,10 +328,17 @@
                     };
             }
 
-            if (bColor && bColor != "#000" && bColor != "#000000") {
+            if (bColor && bColor != "#FAFAFA") {
                 s = {
                     ...s,
                     color:"#FFF"
+                };
+            }
+
+            if (bColor && bColor == "#FAFAFA") {
+                s = {
+                    ...s,
+                    color: "rgba(0, 0, 0, .65)"
                 };
             }
 
@@ -353,18 +361,18 @@
             }
         }
 
-        getTopicColor(item: any): string {
+        getTagBgColor(item: any): string {
             let index = item.action === "publish" ? 0 : 1;
 
             let t = (this.treeData[index].children as any[]).find((c: any) => {
-                return c.topic == item.topic;
+                return c.topic == item.topic && c.key == item.key;
             });
 
-            if (t) {
+            if (t && t.color) {
                 return t.color;
             }
 
-            return "#000";
+            return "#FAFAFA";
         }
     }
 </script>

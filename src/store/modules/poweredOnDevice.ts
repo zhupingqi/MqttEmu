@@ -25,6 +25,7 @@ export class PoweredOnDevice {
     intervalId: NodeJS.Timer | null = null;
     counter: number = 0;
     context: any = {};
+    lastTopic: db.Topic | null = null;
 
     constructor() { }
 
@@ -174,6 +175,7 @@ export class PoweredOnDevice {
 
     async publish(t: db.Topic, subPayload: any = null) {
         let funs = "";
+        this.lastTopic = t;
 
         await respository.options.get("script").then(v => {
             if(v)
@@ -228,8 +230,9 @@ export class PoweredOnDevice {
                 if (this.device!.type === "normal") {
                     if (this.isJSON(result))
                         result = JSON.stringify(result);
-                    if (typeof (result) === "string")
+                    if (typeof (result) === "string") {
                         this.client!.publish($.trim(t.topic), result);
+                    }
                     else
                         this.log("publish","", "error:Unexpected type of publish message");
                 }
@@ -359,10 +362,10 @@ export class PoweredOnDevice {
                 if (cmd && cmd === "publish") {
                     if (this.device!.type === "pass-through") {
                         let hex = this.toHex(cb.payload.toJSON().data);
-                        _this.log("publish", cb.topic, hex);
+                        _this.log("publish", cb.topic, hex, _this.lastTopic!.id!.toString());
                     }
                     else {
-                        _this.log("publish", cb.topic, cb.payload);
+                        _this.log("publish", cb.topic, cb.payload, _this.lastTopic!.id!.toString());
                     }
                 }                    
             });
@@ -396,8 +399,8 @@ export class PoweredOnDevice {
         }
     }
 
-    log(action: db.DeviceAction, topic: string, content: string) {
-        respository.log.add(this.device_id, action,topic, content).then(d => {
+    log(action: db.DeviceAction, topic: string, content: string, key: string = "") {
+        respository.log.add(this.device_id, action, topic, content, key).then(d => {
             bus.$emit("log", d);
         });
     }

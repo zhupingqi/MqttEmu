@@ -106,8 +106,8 @@ export namespace respository {
             });
         }
 
-        add(device_id: number, action: db.DeviceAction, topic: string, content: string) {
-            var d = new db.Log(device_id, action, topic, content);
+        add(device_id: number, action: db.DeviceAction, topic: string, content: string, key: string) {
+            var d = new db.Log(device_id, action, topic, content, key);
             d.create = new Date();
             return db.context.log.put(d).then(id => {
                 d.id = id;
