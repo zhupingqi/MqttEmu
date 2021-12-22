@@ -73,14 +73,14 @@
                                 </template>
                                 <template v-else>
                                     <template v-if="logs.length > 0">
-                                        <tr class="ant-table-row ant-table-row-level-0" data-row-key="{{item.id}}" v-for="item in logs">
+                                        <tr class="ant-table-row ant-table-row-level-0" :data-row-key="item.id" v-for="item in logs">
                                             <td style="vertical-align:top">
-                                                <a-icon :type="getActionIcon(item.action)" /> {{ item.action }}
+                                                {{ item.action }}
                                                 <br />
                                                 {{ dateFormat(item.create) }}
                                             </td>
                                             <td style="word-break:break-all;vertical-align:top">
-                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag :color="getTopicColor(item)">{{ item.topic }}</a-tag></a-row>
+                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag @click="tagClick(item.topic)" :style="getTagStyle(item)"><a-icon :rotate="90" :type="getActionIcon(item.action)" style="font-size:12px" />&nbsp;&nbsp;{{ item.topic }}</a-tag></a-row>
                                                 <a-row>{{item.content}}</a-row>
                                             </td>
                                         </tr>
@@ -118,6 +118,7 @@
         pageSize: number = 20;
         total: number = 0;
         treeData: any = [];
+        selectTopic: string = "";
 
         @Prop() device_id!: number;
 
@@ -297,19 +298,56 @@
             });
         }
 
+        tagClick(topic: string) {
+            if (this.selectTopic == topic)
+                this.selectTopic = "";
+            else
+                this.selectTopic = topic;
+        }
+
+        getTagStyle(item: any) {
+            let topic = item.topic;
+            let bColor = this.getTopicColor(item);
+            let s = {};
+
+            if (topic === this.selectTopic) {
+                s = {
+                    boxShadow: '0 2px 8px rgb(0 0 0 / 50%)',
+                    backgroundColor: bColor
+                };
+            } else {
+                s = {
+                    backgroundColor: bColor
+                };
+
+                if (this.selectTopic !== "")
+                    s = {
+                        ...s,
+                        opacity: 0.15
+                    };
+            }
+
+            if (bColor && bColor != "#000" && bColor != "#000000") {
+                s = {
+                    ...s,
+                    color:"#FFF"
+                };
+            }
+
+            return s;
+        }
+
         getActionIcon(action: string): string {
             switch (action) {
                 case "online":
                 case "publish":
-                case "subscribe":
-                case "unsubscribed":
                 case "suback":
                 case "unsuback": {
-                    return "up";
+                    return "double-left";
                     break;
                 }
                 default : {
-                    return "down";
+                    return "double-right";
                     break;
                 }
             }
