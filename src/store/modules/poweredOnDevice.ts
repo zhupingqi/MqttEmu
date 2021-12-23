@@ -285,10 +285,10 @@ export class PoweredOnDevice {
             if (t && t.enable && payload) {
                 if (this.device!.type === "pass-through") {
                     let hex = this.toHex(payload.toJSON().data);
-                    this.log("subscribe", topic, hex);
+                    this.log("subscribe", topic, hex, t.id!.toString());
                 }
                 else
-                    this.log("subscribe",topic, payload.toString());
+                    this.log("subscribe", topic, payload.toString(), t.id!.toString());
 
                 if (t.pubId) {
                     respository.topic.get(t.pubId).then(t => {

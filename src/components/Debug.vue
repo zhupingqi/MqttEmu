@@ -1,52 +1,47 @@
 ﻿<template>
     <a-layout style="height:100%">
         <a-layout-sider style="border-right: 1px solid #e8e8e8;padding: 5px;background-color: white;">
-            <div class="debug_btn">
-                <a-tooltip :title="$t('lang.newPublish')" mouseEnterDelay="1">
-                    <a-button icon="upload" @click="newPub()" size="small" />
-                </a-tooltip>
-                <a-tooltip :title="$t('lang.newSubscription')" mouseEnterDelay="1">
-                    <a-button icon="download" @click="newSub()" size="small" />
-                </a-tooltip>
-                <!--<a-button icon="check-circle" @click="" size="small" title="enable all publish" />
-        <a-button icon="stop" @click="" size="small" title="disable all publish" />-->
-            </div>
-            <a-tree show-icon default-expand-all :tree-data="treeData" class="topic_tree">
-                <template #title="{ key: treeKey, title, topic, enable,type}">
-                    <a-dropdown :trigger="['contextmenu']" v-if="treeKey !== ''">
-                        <template v-if="!enable">
+            <a-affix :offset-top="20">
+                <div class="debug_btn">
+                    <a-tooltip :title="$t('lang.newPublish')" mouseEnterDelay="1">
+                        <a-button icon="upload" @click="newPub()" size="small" />
+                    </a-tooltip>
+                    <a-tooltip :title="$t('lang.newSubscription')" mouseEnterDelay="1">
+                        <a-button icon="download" @click="newSub()" size="small" />
+                    </a-tooltip>
+                    <!--<a-button icon="check-circle" @click="" size="small" title="enable all publish" />
+            <a-button icon="stop" @click="" size="small" title="disable all publish" />-->
+                </div>
+                <a-tree show-icon default-expand-all :tree-data="treeData" class="topic_tree">
+                    <template #title="{ key: treeKey, title, topic,color, enable,type}">
+                        <a-dropdown :trigger="['contextmenu']" v-if="treeKey !== ''">
                             <a-tooltip :title="topic" mouseEnterDelay="1">
-                                <a-button type="link" icon="stop" style="padding: 0;width: 170px;overflow: hidden;text-align: left;">{{ title }}</a-button>
+                                <a-button type="link" :icon="!enable?'stop':'check'" :style="getTopicStyle(treeKey,topic,color) ">{{ title }}</a-button>
                             </a-tooltip>
-                        </template>
-                        <template v-else>
-                            <a-tooltip :title="topic" mouseEnterDelay="1">
-                                <a-button type="link" icon="check" style="padding: 0; width: 170px; overflow: hidden;text-align: left;">{{ title }}</a-button>
-                            </a-tooltip>
-                        </template>
-                        <template #overlay>
-                            <a-menu @click="({ key: menuKey }) => onContextMenuClick(treeKey, menuKey, type)">
-                                <a-menu-item key="publish" :disabled="!connected" v-if="type === 'pub'">{{$t('lang.publish')}}</a-menu-item>
-                                <a-menu-divider v-if="type === 'pub'" />
-                                <template v-if="type==='pub'">
-                                    <a-menu-item key="disable" v-if="enable === true">{{$t('lang.disable')}}</a-menu-item>
-                                    <a-menu-item key="enable" v-if="enable === false">{{$t('lang.enable')}}</a-menu-item>
-                                </template>
-                                <template v-else>
-                                    <a-menu-item key="disable" v-if="enable === true" :disabled="!connected">{{$t('lang.disable')}}</a-menu-item>
-                                    <a-menu-item key="enable" v-if="enable === false" :disabled="!connected">{{$t('lang.enable')}}</a-menu-item>
-                                </template>
-                                <a-menu-item key="edit">{{$t('lang.edit')}}</a-menu-item>
-                                <a-menu-divider />
-                                <a-menu-item key="remove">{{$t('lang.remove')}}</a-menu-item>
-                            </a-menu>
-                        </template>
-                    </a-dropdown>
-                    <a-dropdown :trigger="['contextmenu']" v-else>
-                        <span>{{ title }}</span>
-                    </a-dropdown>
-                </template>
-            </a-tree>
+                            <template #overlay>
+                                <a-menu @click="({ key: menuKey }) => onContextMenuClick(treeKey, menuKey, type)">
+                                    <a-menu-item key="publish" :disabled="!connected" v-if="type === 'pub'">{{$t('lang.publish')}}</a-menu-item>
+                                    <a-menu-divider v-if="type === 'pub'" />
+                                    <template v-if="type==='pub'">
+                                        <a-menu-item key="disable" v-if="enable === true">{{$t('lang.disable')}}</a-menu-item>
+                                        <a-menu-item key="enable" v-if="enable === false">{{$t('lang.enable')}}</a-menu-item>
+                                    </template>
+                                    <template v-else>
+                                        <a-menu-item key="disable" v-if="enable === true" :disabled="!connected">{{$t('lang.disable')}}</a-menu-item>
+                                        <a-menu-item key="enable" v-if="enable === false" :disabled="!connected">{{$t('lang.enable')}}</a-menu-item>
+                                    </template>
+                                    <a-menu-item key="edit">{{$t('lang.edit')}}</a-menu-item>
+                                    <a-menu-divider />
+                                    <a-menu-item key="remove">{{$t('lang.remove')}}</a-menu-item>
+                                </a-menu>
+                            </template>
+                        </a-dropdown>
+                        <a-dropdown :trigger="['contextmenu']" v-else>
+                            <span>{{ title }}</span>
+                        </a-dropdown>
+                    </template>
+                </a-tree>
+            </a-affix>
         </a-layout-sider>
         <a-layout-content style="background-color: white;padding: 5px">
             <div class="ant-table ant-table-scroll-position-left ant-table-default" style="margin-bottom:10px">
@@ -75,12 +70,15 @@
                                     <template v-if="logs.length > 0">
                                         <tr class="ant-table-row ant-table-row-level-0" :data-row-key="item.id" v-for="item in logs">
                                             <td style="vertical-align:top">
-                                                {{ item.action }}
-                                                <br />
-                                                {{ dateFormat(item.create) }}
+                                                <a-row>
+                                                    {{ item.action }} <a-icon :rotate="90" :type="getActionIcon(item.action)" style="font-size:12px;float:right;padding-top:4px" />
+                                                </a-row>
+                                                <a-row>
+                                                    {{ dateFormat(item.create) }}
+                                                </a-row>
                                             </td>
                                             <td style="word-break:break-all;vertical-align:top">
-                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag @click="tagClick(item.topic)" :style="getTagStyle(item)"><a-icon :rotate="90" :type="getActionIcon(item.action)" style="font-size:12px" />&nbsp;&nbsp;{{ item.topic }}</a-tag></a-row>
+                                                <a-row v-if="item.topic && item.topic !== ''"><a-tag @click="tagClick(item)" :style="getTagStyle(item)">{{ item.topic }}</a-tag></a-row>
                                                 <a-row>{{item.content}}</a-row>
                                             </td>
                                         </tr>
@@ -118,7 +116,7 @@
         pageSize: number = 20;
         total: number = 0;
         treeData: any = [];
-        selectTopic: string = "";
+        currentLog: db.Log | null = null;
 
         @Prop() device_id!: number;
 
@@ -299,19 +297,51 @@
             });
         }
 
-        tagClick(topic: string) {
-            if (this.selectTopic == topic)
-                this.selectTopic = "";
+        tagClick(log: any) {
+            if (this.currentLog == log)
+                this.currentLog = null;
             else
-                this.selectTopic = topic;
+                this.currentLog = log;
         }
 
-        getTagStyle(item: any) {
-            let topic = item.topic;
-            let bColor = this.getTagBgColor(item);
+        getTopicStyle(treeKey: string, topic: string, color: string) {
+            let s = {
+                color: "rgba(0, 0, 0, .65)"
+            };
+
+            if (treeKey && this.currentLog != null && treeKey == this.currentLog.key) {
+                let t = (this.treeData[0].children as any[]).find((c: any) => {
+                    return c.id == treeKey.toString();
+                }) || (this.treeData[1].children as any[]).find((c: any) => {
+                    return c.id == treeKey.toString();
+                });
+
+                if (color && color!== "") {
+                    s = {
+                        color: color
+                    };
+                }
+                else {
+                    s = {
+                        color: "red"
+                    };
+                }
+            }
+
+            return {
+                padding: 0,
+                width: "170px",
+                overflow: "hidden",
+                textAlign: "left",
+                ...s
+            };
+        }
+
+        getTagStyle(log: db.Log) {
+            let bColor = this.getTagBgColor(log);
             let s = {};
 
-            if (topic === this.selectTopic) {
+            if (this.currentLog && log.topic === this.currentLog.topic && log.key == this.currentLog.key) {
                 s = {
                     boxShadow: '0 2px 8px rgb(0 0 0 / 50%)',
                     backgroundColor: bColor
@@ -321,7 +351,7 @@
                     backgroundColor: bColor
                 };
 
-                if (this.selectTopic !== "")
+                if (this.currentLog !== null)
                     s = {
                         ...s,
                         opacity: 0.15
