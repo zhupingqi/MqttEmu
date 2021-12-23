@@ -43,6 +43,9 @@
     <Content Include="public\img\wechat1.png" />
     <Content Include="public\img\wechat0.png" />
     <Content Include="public\img\reward.jpg" />
+    <Content Include="src\components\Affix.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\components\clientopt\Tencent.vue" />
     <Content Include="src\components\clientopt\Aliyun.vue">
       <Publish>False</Publish>

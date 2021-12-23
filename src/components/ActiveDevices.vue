@@ -8,7 +8,7 @@
                 </span>
                 <Debug v-bind:device_id="device.device_id" v-bind:connected="device.connected"></Debug>
             </a-tab-pane>
-            <a-space :size="12" slot="tabBarExtraContent" v-if="devices.length > 0 && current">
+            <a-space :size="12" slot="tabBarExtraContent" v-if="devices.length > 0 && current" style="margin-right: 10px;">
                 <a-tooltip :title="$t('lang.connect')" mouseEnterDelay="1" v-if="!current.connected && !current.connecting">
                     <a-icon type="api" @click="switchOnDevice" />
                 </a-tooltip>

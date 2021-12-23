@@ -201,4 +201,12 @@
     .ace_editor{
         margin-left:15px;
     }
+
+    main{
+        padding:0!important;
+    }
+
+    .ant-btn-link:hover {
+        margin-right: -10px!important;
+    }
 </style>

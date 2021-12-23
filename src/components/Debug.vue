@@ -1,7 +1,7 @@
 ﻿<template>
     <a-layout style="height:100%">
         <a-layout-sider style="border-right: 1px solid #e8e8e8;padding: 5px;background-color: white;">
-            <a-affix :offset-top="20">
+            <Affix :offset="10">
                 <div class="debug_btn">
                     <a-tooltip :title="$t('lang.newPublish')" mouseEnterDelay="1">
                         <a-button icon="upload" @click="newPub()" size="small" />
@@ -41,7 +41,7 @@
                         </a-dropdown>
                     </template>
                 </a-tree>
-            </a-affix>
+            </Affix>
         </a-layout-sider>
         <a-layout-content style="background-color: white;padding: 5px">
             <div class="ant-table ant-table-scroll-position-left ant-table-default" style="margin-bottom:10px">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right" class="debug_page" />
+            <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right;margin-bottom: 10px;" class="debug_page" />
         </a-layout-content>
     </a-layout>
 </template>
@@ -106,7 +106,8 @@
     import bus from '@/core/utils';
     import { db } from "@/core/db";
     import { respository } from "@/core/respository";
-    import { format } from 'date-fns'
+    import { format } from 'date-fns';
+    import Affix from './components/Affix.vue';
 
     @Component
     export default class Debug extends Vue {
@@ -406,6 +407,10 @@
             }
 
             return "#FAFAFA";
+        }
+
+        test(e: any) {
+            console.log(e);
         }
     }
 </script>
