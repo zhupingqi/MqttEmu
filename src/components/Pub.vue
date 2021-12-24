@@ -261,6 +261,7 @@ function transformPayload(data) {
                     else
                         respository.topic.add(this.device_id, "pub", this.form);
 
+                    bus.$emit("reload_topic");
                     this.onClose();
                 }
             });
@@ -284,7 +285,6 @@ function transformPayload(data) {
         }
 
         onClose() {
-            bus.$emit("reload_topic");
             this.visible = false;
         }
 

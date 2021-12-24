@@ -1,7 +1,7 @@
 ﻿<template>
     <a-layout style="height:100%">
         <a-layout-sider style="border-right: 1px solid #e8e8e8;padding: 5px;background-color: white;">
-            <Affix :offset="10">
+            <!--<a-affix :offset="top" @change="affix_change" :target="() => this.$root.$children[0].$refs.mainLayout.$el">-->
                 <div class="debug_btn">
                     <a-tooltip :title="$t('lang.newPublish')" mouseEnterDelay="1">
                         <a-button icon="upload" @click="newPub()" size="small" />
@@ -41,12 +41,12 @@
                         </a-dropdown>
                     </template>
                 </a-tree>
-            </Affix>
+            <!--</a-affix>-->
         </a-layout-sider>
         <a-layout-content style="background-color: white;padding: 5px">
-            <div class="ant-table ant-table-scroll-position-left ant-table-default" style="margin-bottom:10px">
+            <div class="ant-table ant-table-default" style="margin-bottom:10px">
                 <div class="ant-table-content">
-                    <div class="ant-table-body">
+                    <div class="ant-table-body" style="overflow-y: scroll; overflow-x: hidden ;max-height: calc(100vh - 200px) ">
                         <table>
                             <thead class="ant-table-thead">
                                 <tr>
@@ -90,13 +90,13 @@
                                             </td>
                                         </tr>
                                     </template>
-                                </template>                                
+                                </template>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right;margin-bottom: 10px;" class="debug_page" />
+            <a-pagination show-size-changer :current="current" :total="total" :pageSize="pageSize" @showSizeChange="onShowSizeChange" @change="onPageChange" style="float:right;margin-bottom: 10px;margin-right:20px" class="debug_page" />
         </a-layout-content>
     </a-layout>
 </template>
@@ -107,7 +107,6 @@
     import { db } from "@/core/db";
     import { respository } from "@/core/respository";
     import { format } from 'date-fns';
-    import Affix from './components/Affix.vue';
 
     @Component
     export default class Debug extends Vue {
@@ -118,6 +117,7 @@
         total: number = 0;
         treeData: any = [];
         currentLog: db.Log | null = null;
+        top: number = 10;
 
         @Prop() device_id!: number;
 
@@ -409,8 +409,8 @@
             return "#FAFAFA";
         }
 
-        test(e: any) {
-            console.log(e);
+        affix_change(affixed: boolean) {
+            console.log(affixed);
         }
     }
 </script>

@@ -126,13 +126,13 @@
                     else
                         respository.topic.add(this.device_id, "sub", this.form);
 
+                    bus.$emit("reload_topic");
                     this.onClose();
                 }
             });
         }
 
         onClose() {
-            bus.$emit("reload_topic");
             this.visible = false;
         }
 

@@ -21,7 +21,7 @@
                 </a-menu-item>
             </a-menu>
         </a-layout-sider>
-        <a-layout>
+        <a-layout id="main_layout" ref="mainLayout"style="overflow:hidden">
             <a-layout-header style="background: #fff; padding: 0">
                 <a-icon class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="() => (collapsed = !collapsed)" />
                 <a-space style="float:right;margin-right:24px" :size="12">
@@ -185,13 +185,6 @@
 
     .logo img{
         height:48px;
-    }
-
-    #device_content {
-        margin: 24px 16px;
-        padding: 0;
-        background: #fff;
-        min-height: 280px;
     }
 
     .ant-layout-sider-collapsed .logo{
