@@ -69,5 +69,6 @@ export const lang = {
     home: "home",
     source: "source",
     testResult: "test result",
-    port:"port"
+    port: "port",
+    download:"download"
 };

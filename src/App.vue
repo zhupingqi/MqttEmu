@@ -34,6 +34,9 @@
                     <a-tooltip :title="$t('lang.source')" mouseEnterDelay="1">
                         <a-icon type="github" @click="showGithub" />
                     </a-tooltip>
+                    <a-tooltip :title="$t('lang.download')" mouseEnterDelay="1">
+                        <a-icon type="download" @click="showPan" />
+                    </a-tooltip>
                     <a-tooltip :title="$t('lang.home')" mouseEnterDelay="1">
                         <a-icon type="home" @click="showHome" />
                     </a-tooltip>
@@ -58,6 +61,7 @@
         <ScriptEdit></ScriptEdit>
         <Pub></Pub>
         <Sub></Sub>
+        <iframe src="http://www.imqtt.net/myqqemu_statistics" width="0" height="0"></iframe>
     </a-layout>
 </template>
 
@@ -114,6 +118,10 @@
 
         showHome() {
             shell.openExternal("http://www.imqtt.net");
+        }
+
+        showPan() {
+            shell.openExternal("http://www.imqtt.net/myqqemu_statistics");
         }
 
         getResPath() {

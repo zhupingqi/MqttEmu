@@ -46,7 +46,7 @@
         <a-layout-content style="background-color: white;padding: 5px">
             <div class="ant-table ant-table-default" style="margin-bottom:10px">
                 <div class="ant-table-content">
-                    <div class="ant-table-body" style="overflow-y: scroll; overflow-x: hidden ;max-height: calc(100vh - 200px) ">
+                    <div class="ant-table-body" style="overflow-y: scroll; overflow-x: hidden; max-height: calc(100vh - 200px); min-height: calc(100vh - 200px) ">
                         <table>
                             <thead class="ant-table-thead">
                                 <tr>
