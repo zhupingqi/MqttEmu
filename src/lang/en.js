@@ -70,5 +70,6 @@ export const lang = {
     source: "source",
     testResult: "test result",
     port: "port",
-    download:"download"
+    download: "download",
+    no_device:"no device"
 };

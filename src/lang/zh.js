@@ -71,5 +71,6 @@ export const lang = {
     source: "源码",
     testResult: "测试结果",
     port: "端口",
-    download:"下载"
+    download: "下载",
+    no_device: "未添加设备"
 };
