@@ -1,85 +1,91 @@
+[å¹¿å‘Š]
 
-[¼ò½é](http://)
+### å¹´çº§å¤§äº†
 
-### ¼ò½é
+å¹´çº§å¤§äº†, ç†¬ä¸åŠ¨äº†ï¼Œå–å–èŒ¶å¶ï¼Œå–œæ¬¢å–èŒ¶çš„çŒ¿äººä»¬ï¼Œæ¥çœ‹çœ‹å¦‚ä½•æ³¡å‡ºä¸€æ¯ç¾Žå‘³çš„èŒ¶å§ 
+![æ³¡æ³¡èŒ¶](https://www.paopaocha.top/images/ad/paopaocha.jpg "æ³¡æ³¡èŒ¶")
 
-MqttEmuÊÇÊ¹ÓÃElectron¹¹½¨×ÀÃæÓ¦ÓÃ³ÌÐò£¬ÔÊÐíÔËÐÐÔÚWindows¡¢macOSºÍLinuxÉÏ¡£
+[æ³¡æ³¡èŒ¶ https://www.paopaocha.top/](https://www.paopaocha.top/)
 
-MqttEmuÊÇÒ»¸öÎïÁªÍøÉè±¸·ÂÕæÆ÷£¬Ö÷ÒªÊ¹ÓÃMqttÐ­Òé½øÐÐÍøÂçÍ¨Ñ¶£¬ÊµÏÖÎïÁªÍøÉè±¸ÓëÎïÁªÍøÆ½Ì¨µÄÏûÏ¢Í¨Ñ¶¡£
+### ç®€ä»‹
 
-MqttEmuÊÊÓÃÓÚÃ»ÓÐÎïÁªÍøÓ²¼þ¿ª·¢¾­Ñé»òÕßÔÝÊ±²»ÐèÒª½øÐÐÎïÁªÍøÓ²¼þ¿ª·¢µÄÈËÔ±£¬MqttEmu¿ÉÒÔÔÚÃ»ÓÐÎïÁªÍøÓ²¼þµÄÇ°ÌáÏÂ½øÐÐÍøÁªÍø·þÎñ¶Ë¿ª·¢£¬²¢½øÐÐ·þÎñ¶Ë¹¦ÄÜÐÔ²âÊÔ¡£
+MqttEmuæ˜¯ä½¿ç”¨Electronæž„å»ºæ¡Œé¢åº”ç”¨ç¨‹åºï¼Œå…è®¸è¿è¡Œåœ¨Windowsã€macOSå’ŒLinuxä¸Šã€‚
 
-### ÈçºÎÏÂÔØ
+MqttEmuæ˜¯ä¸€ä¸ªç‰©è”ç½‘è®¾å¤‡ä»¿çœŸå™¨ï¼Œä¸»è¦ä½¿ç”¨Mqttåè®®è¿›è¡Œç½‘ç»œé€šè®¯ï¼Œå®žçŽ°ç‰©è”ç½‘è®¾å¤‡ä¸Žç‰©è”ç½‘å¹³å°çš„æ¶ˆæ¯é€šè®¯ã€‚
 
-°Ù¶ÈÍøÅÌÁ´½Ó£ºhttps://pan.baidu.com/s/1AixcifzQbiruDDEoesE5UQ 
+MqttEmué€‚ç”¨äºŽæ²¡æœ‰ç‰©è”ç½‘ç¡¬ä»¶å¼€å‘ç»éªŒæˆ–è€…æš‚æ—¶ä¸éœ€è¦è¿›è¡Œç‰©è”ç½‘ç¡¬ä»¶å¼€å‘çš„äººå‘˜ï¼ŒMqttEmuå¯ä»¥åœ¨æ²¡æœ‰ç‰©è”ç½‘ç¡¬ä»¶çš„å‰æä¸‹è¿›è¡Œç½‘è”ç½‘æœåŠ¡ç«¯å¼€å‘ï¼Œå¹¶è¿›è¡ŒæœåŠ¡ç«¯åŠŸèƒ½æ€§æµ‹è¯•ã€‚
 
-ÌáÈ¡Âë£ºtxtr
+### å¦‚ä½•ä¸‹è½½
 
-### ½çÃæ
+ç™¾åº¦ç½‘ç›˜é“¾æŽ¥ï¼šhttps://pan.baidu.com/s/1AixcifzQbiruDDEoesE5UQ 
 
-![Ö÷½çÃæ](https://images.gitee.com/uploads/images/2021/1207/143716_5da6c10b_1970137.png "ÆÁÄ»½ØÍ¼.png")
+æå–ç ï¼štxtr
 
-Ö÷½çÃæ´óÖÂ·ÖÎª¹¦ÄÜÇø¡¢Á´½ÓÇø¡¢×ÀÃæÇøÈý¸ö²¿·Ö¡£¹¦ÄÜÇøÎª³£ÓÃ¹¦ÄÜÃüÁî£¬ÀýÈç£º´´½¨Éè±¸¡£Á´½ÓÇøÌá¹©github¼°°ïÖúÁ´½Ó¡£×ÀÃæÇøÓÃÓÚ²Ù×÷µ±Ç°·ÅÈë×ÀÃæÉè±¸¡£Éè±¸Ö»ÓÐ·ÅÈë×ÀÃæ²Å¿ÉÒÔÁ¬½Óµ½ÎïÁªÍø¡£
+### ç•Œé¢
 
-### ¿ìËÙÈëÃÅ
+![ä¸»ç•Œé¢](https://images.gitee.com/uploads/images/2021/1207/143716_5da6c10b_1970137.png "å±å¹•æˆªå›¾.png")
 
-±¾²¿·Ö½«»áÍ¨¹ýÊ¹ÓÃMqttEmu´´½¨Ò»¸ö¼«¼òµÄÎïÁªÍøÉè±¸´øÄãÁË½âÈçºÎÊ¹ÓÃMqttEmuÄ£ÄâÎïÁªÍøÉè±¸¡£
+ä¸»ç•Œé¢å¤§è‡´åˆ†ä¸ºåŠŸèƒ½åŒºã€é“¾æŽ¥åŒºã€æ¡Œé¢åŒºä¸‰ä¸ªéƒ¨åˆ†ã€‚åŠŸèƒ½åŒºä¸ºå¸¸ç”¨åŠŸèƒ½å‘½ä»¤ï¼Œä¾‹å¦‚ï¼šåˆ›å»ºè®¾å¤‡ã€‚é“¾æŽ¥åŒºæä¾›githubåŠå¸®åŠ©é“¾æŽ¥ã€‚æ¡Œé¢åŒºç”¨äºŽæ“ä½œå½“å‰æ”¾å…¥æ¡Œé¢è®¾å¤‡ã€‚è®¾å¤‡åªæœ‰æ”¾å…¥æ¡Œé¢æ‰å¯ä»¥è¿žæŽ¥åˆ°ç‰©è”ç½‘ã€‚
 
-> ±¾²¿·ÖÊ¹ÓÃ**°¢ÀïÔÆ**×÷ÎªÎïÁªÍø·þÎñÆ÷£¬ÄúÐèÒªÊ×ÏÈÊ¹ÓÃ°¢ÀïÔÆÎïÁªÍø´´½¨Ò»¸ö²úÆ·£¬²¢ÐÂ½¨Ò»¸öÉè±¸¡£
+### å¿«é€Ÿå…¥é—¨
 
-##### 1. ´´½¨ÐéÄâÉè±¸
+æœ¬éƒ¨åˆ†å°†ä¼šé€šè¿‡ä½¿ç”¨MqttEmuåˆ›å»ºä¸€ä¸ªæžç®€çš„ç‰©è”ç½‘è®¾å¤‡å¸¦ä½ äº†è§£å¦‚ä½•ä½¿ç”¨MqttEmuæ¨¡æ‹Ÿç‰©è”ç½‘è®¾å¤‡ã€‚
 
-ÔÚ°¢ÀïÔÆ´´½¨ÍêÎïÁªÍøÉè±¸ºó£¬»Øµ½ÎÒÃÇµÄÓ¦ÓÃ£¬µã»÷Ö÷½çÃæ¹¦ÄÜÇøµÄ**ÐÂÉè±¸**´ò¿ªÉè±¸´´½¨´°¿Ú¡£
+> æœ¬éƒ¨åˆ†ä½¿ç”¨**é˜¿é‡Œäº‘**ä½œä¸ºç‰©è”ç½‘æœåŠ¡å™¨ï¼Œæ‚¨éœ€è¦é¦–å…ˆä½¿ç”¨é˜¿é‡Œäº‘ç‰©è”ç½‘åˆ›å»ºä¸€ä¸ªäº§å“ï¼Œå¹¶æ–°å»ºä¸€ä¸ªè®¾å¤‡ã€‚
 
-![ÐÂÉè±¸](https://images.gitee.com/uploads/images/2021/1207/145412_e7d95fbb_1970137.png "ÆÁÄ»½ØÍ¼.png")
+##### 1. åˆ›å»ºè™šæ‹Ÿè®¾å¤‡
 
-Ãû³ÆÌîÐ´ÎªÄúÉè±¸µÄÃû³Æ£¬ÕâÀïÌîÐ´Îªtest1,Ä£Ê½Ñ¡Ôñ**±ê×¼**£¬Éú³ÉÆ÷Ñ¡Ôñ**°¢ÀïÔÆ**£¬ProductKey¡¢DeviceName¡¢DeviceSecret¿ÉÒÔÔÚÄú´´½¨µÄ°¢ÀïÔÆÎïÁªÍø²úÆ·Éè±¸ÉÏÕÒµ½£¬½«ÕâÐ©ÐÅÏ¢ÌîÈë¶ÔÓ¦ÇøÓò¡£ÆäËûÑ¡ÏîÈçÏÂÍ¼ËùÑ¡£¬È»ºóµã»÷**Ìî³ä**°´Å¥£¬Á¬½Ó°¢ÀïÔÆËùÐèÒªµÄÏà¹Ø²ÎÊý»á×Ô¶¯½øÐÐÌî³ä¡£
+åœ¨é˜¿é‡Œäº‘åˆ›å»ºå®Œç‰©è”ç½‘è®¾å¤‡åŽï¼Œå›žåˆ°æˆ‘ä»¬çš„åº”ç”¨ï¼Œç‚¹å‡»ä¸»ç•Œé¢åŠŸèƒ½åŒºçš„**æ–°è®¾å¤‡**æ‰“å¼€è®¾å¤‡åˆ›å»ºçª—å£ã€‚
 
-![Éè±¸ÐÅÏ¢](https://images.gitee.com/uploads/images/2021/1207/145656_99846154_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![æ–°è®¾å¤‡](https://images.gitee.com/uploads/images/2021/1207/145412_e7d95fbb_1970137.png "å±å¹•æˆªå›¾.png")
 
-ÆäËûÔÝÊ±²»ÐèÒªÌîÐ´£¬µã»÷**Ìá½»**°´Å¥£¬Ìí¼ÓÕâ¸öÉè±¸¡£
+åç§°å¡«å†™ä¸ºæ‚¨è®¾å¤‡çš„åç§°ï¼Œè¿™é‡Œå¡«å†™ä¸ºtest1,æ¨¡å¼é€‰æ‹©**æ ‡å‡†**ï¼Œç”Ÿæˆå™¨é€‰æ‹©**é˜¿é‡Œäº‘**ï¼ŒProductKeyã€DeviceNameã€DeviceSecretå¯ä»¥åœ¨æ‚¨åˆ›å»ºçš„é˜¿é‡Œäº‘ç‰©è”ç½‘äº§å“è®¾å¤‡ä¸Šæ‰¾åˆ°ï¼Œå°†è¿™äº›ä¿¡æ¯å¡«å…¥å¯¹åº”åŒºåŸŸã€‚å…¶ä»–é€‰é¡¹å¦‚ä¸‹å›¾æ‰€é€‰ï¼Œç„¶åŽç‚¹å‡»**å¡«å……**æŒ‰é’®ï¼Œè¿žæŽ¥é˜¿é‡Œäº‘æ‰€éœ€è¦çš„ç›¸å…³å‚æ•°ä¼šè‡ªåŠ¨è¿›è¡Œå¡«å……ã€‚
 
-##### 2. ½«Éè±¸Ìí¼ÓÖÁ×ÀÃæÇø
+![è®¾å¤‡ä¿¡æ¯](https://images.gitee.com/uploads/images/2021/1207/145656_99846154_1970137.png "å±å¹•æˆªå›¾.png")
 
-ÔÚÖ÷½çÃæ¹¦ÄÜÇøµã»÷Éè±¸ÁÐ±í£¬½«´ò¿ªÉè±¸ÁÐ±íÃæ°å£¬ÕâÀïÄú½«¿´µ½Äú¸Õ¸Õ´´½¨µÄÉè±¸¡£
+å…¶ä»–æš‚æ—¶ä¸éœ€è¦å¡«å†™ï¼Œç‚¹å‡»**æäº¤**æŒ‰é’®ï¼Œæ·»åŠ è¿™ä¸ªè®¾å¤‡ã€‚
 
-![Éè±¸ÁÐ±í](https://images.gitee.com/uploads/images/2021/1207/151215_cc3c44a7_1970137.png "ÆÁÄ»½ØÍ¼.png")
+##### 2. å°†è®¾å¤‡æ·»åŠ è‡³æ¡Œé¢åŒº
 
-> Éè±¸ÏÂÃæµÄÈý¸ö¹¦ÄÜ°´Å¥Îª 1£ºÌí¼ÓÖÁ×ÀÃæ 2£º±à¼­Éè±¸ 3£ºÉ¾³ýÉè±¸
+åœ¨ä¸»ç•Œé¢åŠŸèƒ½åŒºç‚¹å‡»è®¾å¤‡åˆ—è¡¨ï¼Œå°†æ‰“å¼€è®¾å¤‡åˆ—è¡¨é¢æ¿ï¼Œè¿™é‡Œæ‚¨å°†çœ‹åˆ°æ‚¨åˆšåˆšåˆ›å»ºçš„è®¾å¤‡ã€‚
 
-ÎÒÃÇµã»÷µÚÒ»¸ö°´Å¥£¬½«Éè±¸Ìí¼Ó×ÀÃæÇø£¬È»ºó¹Ø±ÕÉè±¸ÁÐ±íÃæ°å¡£
+![è®¾å¤‡åˆ—è¡¨](https://images.gitee.com/uploads/images/2021/1207/151215_cc3c44a7_1970137.png "å±å¹•æˆªå›¾.png")
 
-##### 3. Éè±¸ÉÏÏß
+> è®¾å¤‡ä¸‹é¢çš„ä¸‰ä¸ªåŠŸèƒ½æŒ‰é’®ä¸º 1ï¼šæ·»åŠ è‡³æ¡Œé¢ 2ï¼šç¼–è¾‘è®¾å¤‡ 3ï¼šåˆ é™¤è®¾å¤‡
 
-![×ÀÃæÉè±¸](https://images.gitee.com/uploads/images/2021/1207/163949_efe6d83f_1970137.png "ÆÁÄ»½ØÍ¼.png")
+æˆ‘ä»¬ç‚¹å‡»ç¬¬ä¸€ä¸ªæŒ‰é’®ï¼Œå°†è®¾å¤‡æ·»åŠ æ¡Œé¢åŒºï¼Œç„¶åŽå…³é—­è®¾å¤‡åˆ—è¡¨é¢æ¿ã€‚
 
-½«Éè±¸Ìí¼ÓÖÁ×ÀÃæºó£¬»á³öÏÖÈçÍ¼ËùÊ¾½çÃæ£¬1Î»ÖÃÎªÉè±¸¹¦ÄÜÇø£¬2Î»ÖÃÎªÉÏ±¨¶©ÔÄÇø£¬3Î»ÖÃÎªÈÕÖ¾Çø
+##### 3. è®¾å¤‡ä¸Šçº¿
 
-µã»÷Éè±¸¹¦ÄÜÇøµÄµÚÒ»¸öÁ¬½Ó°´Å¥£¬Éè±¸¼´¿ÉÉÏÏß¡£
+![æ¡Œé¢è®¾å¤‡](https://images.gitee.com/uploads/images/2021/1207/163949_efe6d83f_1970137.png "å±å¹•æˆªå›¾.png")
 
-##### 4. ²é¿´ÈÕÖ¾
+å°†è®¾å¤‡æ·»åŠ è‡³æ¡Œé¢åŽï¼Œä¼šå‡ºçŽ°å¦‚å›¾æ‰€ç¤ºç•Œé¢ï¼Œ1ä½ç½®ä¸ºè®¾å¤‡åŠŸèƒ½åŒºï¼Œ2ä½ç½®ä¸ºä¸ŠæŠ¥è®¢é˜…åŒºï¼Œ3ä½ç½®ä¸ºæ—¥å¿—åŒº
 
-![ÈÕÖ¾](https://images.gitee.com/uploads/images/2021/1207/171400_91094182_1970137.png "ÆÁÄ»½ØÍ¼.png")
+ç‚¹å‡»è®¾å¤‡åŠŸèƒ½åŒºçš„ç¬¬ä¸€ä¸ªè¿žæŽ¥æŒ‰é’®ï¼Œè®¾å¤‡å³å¯ä¸Šçº¿ã€‚
 
-ÈÕÖ¾ÇøÓò·ÖÎª×óÓÒÁ½¸ö²¿·Ö£¬×ó²àÎªÈÕÖ¾¶¯×÷¼°ÈÕÖ¾Ê±¼ä£¬ÓÒ²àÎªÈÕÖ¾ÄÚÈÝ¡£
+##### 4. æŸ¥çœ‹æ—¥å¿—
 
-##### 5. ±à¼­·¢²¼ÏûÏ¢
+![æ—¥å¿—](https://images.gitee.com/uploads/images/2021/1207/171400_91094182_1970137.png "å±å¹•æˆªå›¾.png")
 
-![·¢²¼ºÍ¶©ÔÄÏûÏ¢](https://images.gitee.com/uploads/images/2021/1208/083804_e0ce15a6_1970137.png "ÆÁÄ»½ØÍ¼.png")
+æ—¥å¿—åŒºåŸŸåˆ†ä¸ºå·¦å³ä¸¤ä¸ªéƒ¨åˆ†ï¼Œå·¦ä¾§ä¸ºæ—¥å¿—åŠ¨ä½œåŠæ—¥å¿—æ—¶é—´ï¼Œå³ä¾§ä¸ºæ—¥å¿—å†…å®¹ã€‚
 
-µã»÷ÉÏÍ¼ËùÊ¾1Î»ÖÃ°´Å¥£¬Ìí¼ÓÐÂµÄ·¢²¼£¬´ËÊ±»á´ò¿ªÐÂ·¢²¼Ãæ°å¡£
+##### 5. ç¼–è¾‘å‘å¸ƒæ¶ˆæ¯
 
-![ÐÂ·¢²¼](https://images.gitee.com/uploads/images/2021/1208/111747_6bb2073b_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![å‘å¸ƒå’Œè®¢é˜…æ¶ˆæ¯](https://images.gitee.com/uploads/images/2021/1208/083804_e0ce15a6_1970137.png "å±å¹•æˆªå›¾.png")
 
-ÔÚÃû³Æ´¦ÌîÐ´ÄúµÄ·¢²¼Ãû³Æ£¬ÕâÀïÌîÐ´property.post,topic´¦ÌîÐ´
+ç‚¹å‡»ä¸Šå›¾æ‰€ç¤º1ä½ç½®æŒ‰é’®ï¼Œæ·»åŠ æ–°çš„å‘å¸ƒï¼Œæ­¤æ—¶ä¼šæ‰“å¼€æ–°å‘å¸ƒé¢æ¿ã€‚
+
+![æ–°å‘å¸ƒ](https://images.gitee.com/uploads/images/2021/1208/111747_6bb2073b_1970137.png "å±å¹•æˆªå›¾.png")
+
+åœ¨åç§°å¤„å¡«å†™æ‚¨çš„å‘å¸ƒåç§°ï¼Œè¿™é‡Œå¡«å†™property.post,topicå¤„å¡«å†™
 
  /sys/**product_key**/**device_name**/thing/event/property/post
 
-´Ë´¦product_key£¬device_nameÌæ»»³ÉÄúµÄ°¢ÀïÈýÒªËØÐÅÏ¢£¬ÆäËûÑ¡ÔñÄ¬ÈÏ¡£
+æ­¤å¤„product_keyï¼Œdevice_nameæ›¿æ¢æˆæ‚¨çš„é˜¿é‡Œä¸‰è¦ç´ ä¿¡æ¯ï¼Œå…¶ä»–é€‰æ‹©é»˜è®¤ã€‚
 
-> ¼ä¸ôÎª×Ô¶¯Ìá½»¼ä¸ôÊ±¼ä£¬µ¥Î»ÎªÃë
+> é—´éš”ä¸ºè‡ªåŠ¨æäº¤é—´éš”æ—¶é—´ï¼Œå•ä½ä¸ºç§’
 
-´úÂë´¦ÌîÐ´ÒÔÏÂÄÚÈÝ
+ä»£ç å¤„å¡«å†™ä»¥ä¸‹å†…å®¹
 
 
 ```
@@ -97,39 +103,39 @@ function transformPayload(rawData) {
 }
 ```
 
-> ·¢²¼»á¼ÆËãº¯ÊýÔËËã½á¹û£¬ÔÚ**±ê×¼Ä£Ê½**ÏÂ»á½«º¯Êý·µ»ØµÄÎÄ±¾Êý¾Ý»òJSON¶ÔÏó·¢²¼µ½ÎïÁªÍø·þÎñÆ÷ÉÏ¡£**Í¸´«Ä£Ê½**Ôò·¢²¼BufferÊý¾Ýµ½ÎïÁªÍø·þÎñÆ÷¡£Ä£Ê½ÊÇÐÂ½¨ÐéÄâÉè±¸Ê±ÉèÖÃµÄ¡£
+> å‘å¸ƒä¼šè®¡ç®—å‡½æ•°è¿ç®—ç»“æžœï¼Œåœ¨**æ ‡å‡†æ¨¡å¼**ä¸‹ä¼šå°†å‡½æ•°è¿”å›žçš„æ–‡æœ¬æ•°æ®æˆ–JSONå¯¹è±¡å‘å¸ƒåˆ°ç‰©è”ç½‘æœåŠ¡å™¨ä¸Šã€‚**é€ä¼ æ¨¡å¼**åˆ™å‘å¸ƒBufferæ•°æ®åˆ°ç‰©è”ç½‘æœåŠ¡å™¨ã€‚æ¨¡å¼æ˜¯æ–°å»ºè™šæ‹Ÿè®¾å¤‡æ—¶è®¾ç½®çš„ã€‚
 
-µ¥»÷Ìá½»±£´æ·¢²¼ÉèÖÃ¡£
+å•å‡»æäº¤ä¿å­˜å‘å¸ƒè®¾ç½®ã€‚
 
-##### 6. ×Ô¶¯ÊÖ¶¯·¢ËÍÏûÏ¢
+##### 6. è‡ªåŠ¨æ‰‹åŠ¨å‘é€æ¶ˆæ¯
 
-»Øµ½×ÀÃæÇøºó£¬±£³ÖÉè±¸Á¬½Ó×´Ì¬£¨²Î¼û²½ÖèÈý£©¡£ÐÂ½¨ÏûÏ¢»á¸ù¾Ý²½Öè5ÖÐÉÏ±¨¼ä¸ôÉèÖÃ£¬¶¨ÆÚÉÏ±¨¡£ÈôÏëÊÖ¶¯ÉÏ±¨£¬¿ÉÔÚÉÏ±¨¶©ÔÄÇøÓÒ¼üµã»÷ÐÂ´´½¨µÄÉÏ±¨ÏûÏ¢£¬ÔÙµã»÷³öÏÖ²Ëµ¥µÄÉÏ±¨²Ëµ¥½øÐÐÊÖ¶¯ÉÏ±¨¡£
+å›žåˆ°æ¡Œé¢åŒºåŽï¼Œä¿æŒè®¾å¤‡è¿žæŽ¥çŠ¶æ€ï¼ˆå‚è§æ­¥éª¤ä¸‰ï¼‰ã€‚æ–°å»ºæ¶ˆæ¯ä¼šæ ¹æ®æ­¥éª¤5ä¸­ä¸ŠæŠ¥é—´éš”è®¾ç½®ï¼Œå®šæœŸä¸ŠæŠ¥ã€‚è‹¥æƒ³æ‰‹åŠ¨ä¸ŠæŠ¥ï¼Œå¯åœ¨ä¸ŠæŠ¥è®¢é˜…åŒºå³é”®ç‚¹å‡»æ–°åˆ›å»ºçš„ä¸ŠæŠ¥æ¶ˆæ¯ï¼Œå†ç‚¹å‡»å‡ºçŽ°èœå•çš„ä¸ŠæŠ¥èœå•è¿›è¡Œæ‰‹åŠ¨ä¸ŠæŠ¥ã€‚
 
-![ÏûÏ¢ÉÏ±¨ÓÒ¼ü²Ëµ¥](https://images.gitee.com/uploads/images/2021/1208/142807_1ba8e95c_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![æ¶ˆæ¯ä¸ŠæŠ¥å³é”®èœå•](https://images.gitee.com/uploads/images/2021/1208/142807_1ba8e95c_1970137.png "å±å¹•æˆªå›¾.png")
 
-> ÈôÐè½ûÓÃ×Ô¶¯ÉÏ±¨£¬¿ÉÒÔµã»÷½ûÓÃ²Ëµ¥£¬½ûÓÃºó£¬¿ÉÒÔÔÙ´ÎÆôÓÃ¡£
-µã±à¼­²Ëµ¥¿ÉÒÔ±à¼­ÉÏ±¨ÏûÏ¢
-É¾³ý¿ÉÒÔÉ¾³ý¸ÃÉÏ±¨ÏûÏ¢
+> è‹¥éœ€ç¦ç”¨è‡ªåŠ¨ä¸ŠæŠ¥ï¼Œå¯ä»¥ç‚¹å‡»ç¦ç”¨èœå•ï¼Œç¦ç”¨åŽï¼Œå¯ä»¥å†æ¬¡å¯ç”¨ã€‚
+ç‚¹ç¼–è¾‘èœå•å¯ä»¥ç¼–è¾‘ä¸ŠæŠ¥æ¶ˆæ¯
+åˆ é™¤å¯ä»¥åˆ é™¤è¯¥ä¸ŠæŠ¥æ¶ˆæ¯
 
-### ´«¸ÐÆ÷ºÍ¹«¹²½Å±¾
+### ä¼ æ„Ÿå™¨å’Œå…¬å…±è„šæœ¬
 
-´«¸ÐÆ÷ÊÇÊ¹ÓÃjsÄ£ÄâÏÖÊµÉè±¸´«¸ÐÆ÷µÄÄ£¿é£¬¿ÉÒÔ±»ÉÏ±¨¡¢¶©ÔÄÏûÏ¢ÖØ¸´Ê¹ÓÃ¡£¶ÔÓÚ¼òµ¥»ò²»³£ÓÃµÄÄ£ÄâÊý¾Ý¿ÉÒÔÖ±½ÓÐ´µ½ÉÏ±¨»ò¶©ÔÄÏûÏ¢ÖÐ¡£Èô´«¸ÐÆ÷»á±»Éè±¸·ÂÕæÆ÷Æµ·±Ê¹ÓÃ£¬½¨Òé½¨Á¢¶ÀÁ¢µÄ´«¸ÐÆ÷£¬¹©ÉÏ±¨¡¢¶©ÔÄÏûÏ¢ÖØ¸´Ê¹ÓÃ¡£
+ä¼ æ„Ÿå™¨æ˜¯ä½¿ç”¨jsæ¨¡æ‹ŸçŽ°å®žè®¾å¤‡ä¼ æ„Ÿå™¨çš„æ¨¡å—ï¼Œå¯ä»¥è¢«ä¸ŠæŠ¥ã€è®¢é˜…æ¶ˆæ¯é‡å¤ä½¿ç”¨ã€‚å¯¹äºŽç®€å•æˆ–ä¸å¸¸ç”¨çš„æ¨¡æ‹Ÿæ•°æ®å¯ä»¥ç›´æŽ¥å†™åˆ°ä¸ŠæŠ¥æˆ–è®¢é˜…æ¶ˆæ¯ä¸­ã€‚è‹¥ä¼ æ„Ÿå™¨ä¼šè¢«è®¾å¤‡ä»¿çœŸå™¨é¢‘ç¹ä½¿ç”¨ï¼Œå»ºè®®å»ºç«‹ç‹¬ç«‹çš„ä¼ æ„Ÿå™¨ï¼Œä¾›ä¸ŠæŠ¥ã€è®¢é˜…æ¶ˆæ¯é‡å¤ä½¿ç”¨ã€‚
 
-½Å±¾Îª¹«¹²º¯Êý£¬¿ÉÒÔ±»´«¸ÐÆ÷¼°ÉÏ´«¡¢¶©ÔÄÏûÏ¢ÄÚµÄ½Å±¾Ëùµ÷ÓÃ£¬Í¨³£Íê³ÉÒ»Ð©³£¼û²Ù×÷£¬ÀýÈçIDÉú³É£¬Êý¾Ý¸ñÊ½×ª»¯µÈ¡£
+è„šæœ¬ä¸ºå…¬å…±å‡½æ•°ï¼Œå¯ä»¥è¢«ä¼ æ„Ÿå™¨åŠä¸Šä¼ ã€è®¢é˜…æ¶ˆæ¯å†…çš„è„šæœ¬æ‰€è°ƒç”¨ï¼Œé€šå¸¸å®Œæˆä¸€äº›å¸¸è§æ“ä½œï¼Œä¾‹å¦‚IDç”Ÿæˆï¼Œæ•°æ®æ ¼å¼è½¬åŒ–ç­‰ã€‚
 
-±¾²¿·ÖÍ¨¹ý½¨Á¢Ò»¸ö¼òµ¥µÄÎÂÊª¶È´«¸ÐÆ÷£¬¹©ÉÏ±¨ÏûÏ¢Ê¹ÓÃÀ´ÑÝÊ¾´«¸ÐÆ÷ºÍ¹«¹²½Å±¾ÈçºÎÊ¹ÓÃ¡£
+æœ¬éƒ¨åˆ†é€šè¿‡å»ºç«‹ä¸€ä¸ªç®€å•çš„æ¸©æ¹¿åº¦ä¼ æ„Ÿå™¨ï¼Œä¾›ä¸ŠæŠ¥æ¶ˆæ¯ä½¿ç”¨æ¥æ¼”ç¤ºä¼ æ„Ÿå™¨å’Œå…¬å…±è„šæœ¬å¦‚ä½•ä½¿ç”¨ã€‚
 
-##### 1. ´´½¨Ò»¸ö´«¸ÐÆ÷
+##### 1. åˆ›å»ºä¸€ä¸ªä¼ æ„Ÿå™¨
 
-µã»÷×ÀÃæÇøÓò¹¦ÄÜÇøµÄ´«¸ÐÆ÷²Ëµ¥£¬´ò¿ª´«¸ÐÆ÷ÁÐ±íÃæ°å£¬ÔÙµã»÷ÓÒÉÏ·½+ºÅ£¬ÐÂ½¨´«¸ÐÆ÷¡£
+ç‚¹å‡»æ¡Œé¢åŒºåŸŸåŠŸèƒ½åŒºçš„ä¼ æ„Ÿå™¨èœå•ï¼Œæ‰“å¼€ä¼ æ„Ÿå™¨åˆ—è¡¨é¢æ¿ï¼Œå†ç‚¹å‡»å³ä¸Šæ–¹+å·ï¼Œæ–°å»ºä¼ æ„Ÿå™¨ã€‚
 
-![´«¸ÐÆ÷ÁÐ±í](https://images.gitee.com/uploads/images/2021/1208/145429_06f547a4_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![ä¼ æ„Ÿå™¨åˆ—è¡¨](https://images.gitee.com/uploads/images/2021/1208/145429_06f547a4_1970137.png "å±å¹•æˆªå›¾.png")
 
-´ò¿ªµÄ´«¸ÐÆ÷Ãæ°å
+æ‰“å¼€çš„ä¼ æ„Ÿå™¨é¢æ¿
 
-![´«¸ÐÆ÷Ãæ°å](https://images.gitee.com/uploads/images/2021/1208/145550_32925f24_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![ä¼ æ„Ÿå™¨é¢æ¿](https://images.gitee.com/uploads/images/2021/1208/145550_32925f24_1970137.png "å±å¹•æˆªå›¾.png")
 
-Ãû³ÆÌîÐ´ÎÂÊª¶È´«¸ÐÆ÷£¬±¸×¢ÌîÐ´¶ÁÈ¡±¾µØÎÂÊª¶È£¬´úÂëÈçÏÂ
+åç§°å¡«å†™æ¸©æ¹¿åº¦ä¼ æ„Ÿå™¨ï¼Œå¤‡æ³¨å¡«å†™è¯»å–æœ¬åœ°æ¸©æ¹¿åº¦ï¼Œä»£ç å¦‚ä¸‹
 
 
 ```
@@ -143,47 +149,47 @@ function readSensor($) {
 }
 ```
 
-¸Ã´«¸ÐÆ÷·µ»ØÁ½¸öÊý×ÖÁ¿£¬Ò»¸öÎÂ¶È£¬´ø1Î»Ð¡Êý¸¡µãÊý£¬Ò»¸öÊª¶È£¬ÀàÐÍÎªÕûÊý¡£·µ»ØµÄ½á¹ûÊÇÒ»¸öJSON¶ÔÏó¡£
+è¯¥ä¼ æ„Ÿå™¨è¿”å›žä¸¤ä¸ªæ•°å­—é‡ï¼Œä¸€ä¸ªæ¸©åº¦ï¼Œå¸¦1ä½å°æ•°æµ®ç‚¹æ•°ï¼Œä¸€ä¸ªæ¹¿åº¦ï¼Œç±»åž‹ä¸ºæ•´æ•°ã€‚è¿”å›žçš„ç»“æžœæ˜¯ä¸€ä¸ªJSONå¯¹è±¡ã€‚
 
-> ËùÓÐ´«¸ÐÆ÷½á¹û±ØÐë·µ»ØJSON¶ÔÏó£¬ÊýÖµ²ÅÄÜ´«ËÍ¸øÉÏ±¨ÏûÏ¢Ê¹ÓÃ¡£
+> æ‰€æœ‰ä¼ æ„Ÿå™¨ç»“æžœå¿…é¡»è¿”å›žJSONå¯¹è±¡ï¼Œæ•°å€¼æ‰èƒ½ä¼ é€ç»™ä¸ŠæŠ¥æ¶ˆæ¯ä½¿ç”¨ã€‚
 
-µã»÷Ìá½»±£´æ½á¹ûºó£¬Äú½«ÔÚ´«¸ÐÆ÷ÁÐ±íÃæ°åÕÒµ½ÐÂ½¨µÄ´«¸ÐÆ÷¡£
+ç‚¹å‡»æäº¤ä¿å­˜ç»“æžœåŽï¼Œæ‚¨å°†åœ¨ä¼ æ„Ÿå™¨åˆ—è¡¨é¢æ¿æ‰¾åˆ°æ–°å»ºçš„ä¼ æ„Ÿå™¨ã€‚
 
-##### 2. ±à¼­¹«¹²½Å±¾
+##### 2. ç¼–è¾‘å…¬å…±è„šæœ¬
 
-µã»÷Ö÷½çÃæ¹¦ÄÜÇø½Å±¾²Ëµ¥£¬µ¯³ö½Å±¾±à¼­Ãæ°å£¬Â¼Èë½Å±¾ÈçÏÂ£º
+ç‚¹å‡»ä¸»ç•Œé¢åŠŸèƒ½åŒºè„šæœ¬èœå•ï¼Œå¼¹å‡ºè„šæœ¬ç¼–è¾‘é¢æ¿ï¼Œå½•å…¥è„šæœ¬å¦‚ä¸‹ï¼š
 
 ```
-//»ñÈ¡µ±Ç°Ê±¼äµÄÊ±¼ä´Á ÓÃÓÚÉú³ÉÏûÏ¢ID
+//èŽ·å–å½“å‰æ—¶é—´çš„æ—¶é—´æˆ³ ç”¨äºŽç”Ÿæˆæ¶ˆæ¯ID
 function timestamp() {
     return Math.round(new Date() / 1000);
 }
 ```
-µã»÷Ìá½»±£´æ½á¹û¡£
+ç‚¹å‡»æäº¤ä¿å­˜ç»“æžœã€‚
 
-##### 3. ÖØÐÂ±àÒëÉÏ±¨ÏûÏ¢
+##### 3. é‡æ–°ç¼–è¯‘ä¸ŠæŠ¥æ¶ˆæ¯
 
-ÔÚÒÔÉÏ½éÉÜµÄÐÂ½¨µÄÉÏ±¨ÏûÏ¢property.post²Ëµ¥ÉÏµã»÷ÓÒ¼ü£¬µã»÷±à¼­²Ëµ¥£¬´ò¿ª±à¼­ÏûÏ¢Ãæ°å¡£
+åœ¨ä»¥ä¸Šä»‹ç»çš„æ–°å»ºçš„ä¸ŠæŠ¥æ¶ˆæ¯property.postèœå•ä¸Šç‚¹å‡»å³é”®ï¼Œç‚¹å‡»ç¼–è¾‘èœå•ï¼Œæ‰“å¼€ç¼–è¾‘æ¶ˆæ¯é¢æ¿ã€‚
 
-ÔÚ±äÁ¿´¦Ñ¡ÔñÎÂÊª¶È´«¸ÐÆ÷µÄÁ½¸ö±äÁ¿£¬ÈçÍ¼ËùÊ¾
+åœ¨å˜é‡å¤„é€‰æ‹©æ¸©æ¹¿åº¦ä¼ æ„Ÿå™¨çš„ä¸¤ä¸ªå˜é‡ï¼Œå¦‚å›¾æ‰€ç¤º
 
-![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2021/1208/150918_286e75d3_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![è¾“å…¥å›¾ç‰‡è¯´æ˜Ž](https://images.gitee.com/uploads/images/2021/1208/150918_286e75d3_1970137.png "å±å¹•æˆªå›¾.png")
 
-µã»÷À¶É«°´Å¥£¬Ê¹±äÁ¿´©Ëóµ½ÓÒ²à£¬ÈçÏÂËùÊ¾
+ç‚¹å‡»è“è‰²æŒ‰é’®ï¼Œä½¿å˜é‡ç©¿æ¢­åˆ°å³ä¾§ï¼Œå¦‚ä¸‹æ‰€ç¤º
 
-![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2021/1208/151052_3303ff4f_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![è¾“å…¥å›¾ç‰‡è¯´æ˜Ž](https://images.gitee.com/uploads/images/2021/1208/151052_3303ff4f_1970137.png "å±å¹•æˆªå›¾.png")
 
-ÉÏÏÂ¼ýÍ·°´Å¥¿ÉÒÔµ÷½Ú±äÁ¿Ë³Ðò£¬ÎÒÃÇ½«Êª¶Èµ÷½Úµ½ÉÏÃæ£¬ÈçÏÂËùÊ¾
+ä¸Šä¸‹ç®­å¤´æŒ‰é’®å¯ä»¥è°ƒèŠ‚å˜é‡é¡ºåºï¼Œæˆ‘ä»¬å°†æ¹¿åº¦è°ƒèŠ‚åˆ°ä¸Šé¢ï¼Œå¦‚ä¸‹æ‰€ç¤º
 
-![ÊäÈëÍ¼Æ¬ËµÃ÷](https://images.gitee.com/uploads/images/2021/1208/151314_86450fea_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![è¾“å…¥å›¾ç‰‡è¯´æ˜Ž](https://images.gitee.com/uploads/images/2021/1208/151314_86450fea_1970137.png "å±å¹•æˆªå›¾.png")
 
-´úÂëÇøÕ³Ìù´úÂëÈçÏÂ
+ä»£ç åŒºç²˜è´´ä»£ç å¦‚ä¸‹
 
 ```
 /**
-* ½«Éè±¸rawÊý¾Ý×ª»»Îªjson¸ñÊ½Êý¾Ý
-* Èë²Î£ºrawData Êý×é
-* ³ö²Î£ºjsonObj JSON¶ÔÏó ²»ÄÜÎª¿Õ
+* å°†è®¾å¤‡rawæ•°æ®è½¬æ¢ä¸ºjsonæ ¼å¼æ•°æ®
+* å…¥å‚ï¼šrawData æ•°ç»„
+* å‡ºå‚ï¼šjsonObj JSONå¯¹è±¡ ä¸èƒ½ä¸ºç©º
 */
 function transformPayload(rawData) {
     var jsonObj = {
@@ -199,33 +205,33 @@ function transformPayload(rawData) {
 }
 ```
 
-ÆäÖÐrawDataÊý¾ÝÀ´Ô´ÓÚÉÏÃæËùÉèÖÃµÄ±äÁ¿²¿·Ö£¬Êý×éÄÚÈÝË³ÐòÓÚËùµ÷ÕûµÄÒ»ÖÂ¡£jsonObjÊôÐÔidÊ¹ÓÃÁË¹«¹²¿âtimestampº¯Êý½á¹û£¬µã»÷Ìá½»±£´æ½á¹û¡£
+å…¶ä¸­rawDataæ•°æ®æ¥æºäºŽä¸Šé¢æ‰€è®¾ç½®çš„å˜é‡éƒ¨åˆ†ï¼Œæ•°ç»„å†…å®¹é¡ºåºäºŽæ‰€è°ƒæ•´çš„ä¸€è‡´ã€‚jsonObjå±žæ€§idä½¿ç”¨äº†å…¬å…±åº“timestampå‡½æ•°ç»“æžœï¼Œç‚¹å‡»æäº¤ä¿å­˜ç»“æžœã€‚
 
-»Øµ½×ÀÃæÇø£¬±£³ÖÉè±¸Á¬½Ó×´Ì¬£¬×Ô¶¯»òÊÖ¶¯ÉÏ±¨ºó£¬Í¨¹ý¹Û²ìÈÕÖ¾Äú½«¿´µ½´«¸ÐÆ÷ºÍ¹«¹²½Å±¾ÉÏ±¨½á¹û¡£
+å›žåˆ°æ¡Œé¢åŒºï¼Œä¿æŒè®¾å¤‡è¿žæŽ¥çŠ¶æ€ï¼Œè‡ªåŠ¨æˆ–æ‰‹åŠ¨ä¸ŠæŠ¥åŽï¼Œé€šè¿‡è§‚å¯Ÿæ—¥å¿—æ‚¨å°†çœ‹åˆ°ä¼ æ„Ÿå™¨å’Œå…¬å…±è„šæœ¬ä¸ŠæŠ¥ç»“æžœã€‚
 
-### ¶©ÔÄ
+### è®¢é˜…
 
-##### 1. ÐÂ½¨¶©ÔÄ
+##### 1. æ–°å»ºè®¢é˜…
 
-µã»÷[±à¼­·¢²¼ÏûÏ¢](#5-%E7%BC%96%E8%BE%91%E5%8F%91%E5%B8%83%E6%B6%88%E6%81%AF)²¿·Ö2±ê¼Ç´¦°´Å¥£¬´ò¿ªÐÂ½¨¶©ÔÄÃæ°å¡£
+ç‚¹å‡»[ç¼–è¾‘å‘å¸ƒæ¶ˆæ¯](#5-%E7%BC%96%E8%BE%91%E5%8F%91%E5%B8%83%E6%B6%88%E6%81%AF)éƒ¨åˆ†2æ ‡è®°å¤„æŒ‰é’®ï¼Œæ‰“å¼€æ–°å»ºè®¢é˜…é¢æ¿ã€‚
 
-![¶©ÔÄÃæ°å](https://images.gitee.com/uploads/images/2021/1209/084905_c916c004_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![è®¢é˜…é¢æ¿](https://images.gitee.com/uploads/images/2021/1209/084905_c916c004_1970137.png "å±å¹•æˆªå›¾.png")
 
-Ãû³Æ´¦ÌîÐ´ property.set,Ö÷Ìâ´¦ÌîÐ´ /sys/{product_key}/{device_name}/thing/service/property/set
+åç§°å¤„å¡«å†™ property.set,ä¸»é¢˜å¤„å¡«å†™ /sys/{product_key}/{device_name}/thing/service/property/set
 
-> ´Ë´¦product_key£¬device_nameÌæ»»³ÉÄúµÄ°¢ÀïÈýÒªËØÐÅÏ¢
+> æ­¤å¤„product_keyï¼Œdevice_nameæ›¿æ¢æˆæ‚¨çš„é˜¿é‡Œä¸‰è¦ç´ ä¿¡æ¯
 
-ÆäËû±£³ÖÄ¬ÈÏ£¬µã»÷Ìá½»±£´æ¶©ÔÄ¡£
+å…¶ä»–ä¿æŒé»˜è®¤ï¼Œç‚¹å‡»æäº¤ä¿å­˜è®¢é˜…ã€‚
 
-> PublishÓÃÓÚÊÕµ½¶©ÔÄÏûÏ¢ºó½øÐÐÉÏ±¨£¬ÕâÀï¿ÉÒÔÑ¡ÔñÒ»¸öÒÑ±£´æµÄÉÏ±¨ÏûÏ¢¡£Í¨³£½«¸ÃÀàÐÍµÄÉÏ±¨ÉèÖÃÎª**½ûÓÃ**£¬Ö»ÓÐÔÚ½ÓÊÜµ½¶ÔÓ¦¶©ÔÄÏûÏ¢ºó²Å×Ô¶¯½øÐÐÏûÏ¢ÉÏ±¨¡£ÔÚ¸ÃÀàÉÏ±¨ÏûÏ¢´¦Àíº¯ÊýÖÐ»á½«¶©ÔÄpayload´«Èë¸øµÚ¶þ¸ö²ÎÊý£¬ÒÔ±ã½øÐÐÏà¹Ø²Ù×÷¡£ÒÔÏÂÎª¶©ÔÄÉÏ±¨ÀàÏûÏ¢º¯ÊýÄ£ÐÍ
+> Publishç”¨äºŽæ”¶åˆ°è®¢é˜…æ¶ˆæ¯åŽè¿›è¡Œä¸ŠæŠ¥ï¼Œè¿™é‡Œå¯ä»¥é€‰æ‹©ä¸€ä¸ªå·²ä¿å­˜çš„ä¸ŠæŠ¥æ¶ˆæ¯ã€‚é€šå¸¸å°†è¯¥ç±»åž‹çš„ä¸ŠæŠ¥è®¾ç½®ä¸º**ç¦ç”¨**ï¼Œåªæœ‰åœ¨æŽ¥å—åˆ°å¯¹åº”è®¢é˜…æ¶ˆæ¯åŽæ‰è‡ªåŠ¨è¿›è¡Œæ¶ˆæ¯ä¸ŠæŠ¥ã€‚åœ¨è¯¥ç±»ä¸ŠæŠ¥æ¶ˆæ¯å¤„ç†å‡½æ•°ä¸­ä¼šå°†è®¢é˜…payloadä¼ å…¥ç»™ç¬¬äºŒä¸ªå‚æ•°ï¼Œä»¥ä¾¿è¿›è¡Œç›¸å…³æ“ä½œã€‚ä»¥ä¸‹ä¸ºè®¢é˜…ä¸ŠæŠ¥ç±»æ¶ˆæ¯å‡½æ•°æ¨¡åž‹
 
 
 ```
 /**
-* ½«Éè±¸rawÊý¾Ý×ª»»Îªjson¸ñÊ½Êý¾Ý
-* Èë²Î£ºrawData ´«¸ÐÆ÷Êý¾Ý¶ÔÏó
-* Èë²Î£ºsubPayload ¶©ÔÄpayload¶ÔÏó
-* ³ö²Î£ºjsonObj JSON¶ÔÏó ²»ÄÜÎª¿Õ
+* å°†è®¾å¤‡rawæ•°æ®è½¬æ¢ä¸ºjsonæ ¼å¼æ•°æ®
+* å…¥å‚ï¼šrawData ä¼ æ„Ÿå™¨æ•°æ®å¯¹è±¡
+* å…¥å‚ï¼šsubPayload è®¢é˜…payloadå¯¹è±¡
+* å‡ºå‚ï¼šjsonObj JSONå¯¹è±¡ ä¸èƒ½ä¸ºç©º
 */
 function transformPayload(rawData,subPayload) {
     var jsonObj = {
@@ -245,11 +251,11 @@ function transformPayload(rawData,subPayload) {
 }
 ```
 
-##### 2. ¶©ÔÄ²âÊÔ
+##### 2. è®¢é˜…æµ‹è¯•
 
-»Øµ½Ö÷½çÃæºó£¬±£³ÖÉè±¸·ÂÕæÆ÷´¦ÓÚÁ¬½Ó×´Ì¬¡£ÊÖ¶¯·¢ËÍÏûÏ¢»òµÈ´ý×Ô¶¯·¢ËÍÏûÏ¢Íê³É£¬Äú½«ÔÚÈÕÖ¾ÖÐ¹Û²ìµ½·¢²¼¼°¶©ÔÄÏûÏ¢µÄ½á¹û¡£
+å›žåˆ°ä¸»ç•Œé¢åŽï¼Œä¿æŒè®¾å¤‡ä»¿çœŸå™¨å¤„äºŽè¿žæŽ¥çŠ¶æ€ã€‚æ‰‹åŠ¨å‘é€æ¶ˆæ¯æˆ–ç­‰å¾…è‡ªåŠ¨å‘é€æ¶ˆæ¯å®Œæˆï¼Œæ‚¨å°†åœ¨æ—¥å¿—ä¸­è§‚å¯Ÿåˆ°å‘å¸ƒåŠè®¢é˜…æ¶ˆæ¯çš„ç»“æžœã€‚
 
-![·¢²¼¼°¶©ÔÄÏûÏ¢](https://images.gitee.com/uploads/images/2021/1209/093013_57fc0882_1970137.png "ÆÁÄ»½ØÍ¼.png")
+![å‘å¸ƒåŠè®¢é˜…æ¶ˆæ¯](https://images.gitee.com/uploads/images/2021/1209/093013_57fc0882_1970137.png "å±å¹•æˆªå›¾.png")
 
 
 
